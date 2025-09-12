@@ -34,7 +34,7 @@ export function MenuItems({ items, categoryName, onAddToCart }: MenuItemsProps) 
         {items.map((item) => (
           <Card
             key={item.id}
-            className="group cursor-pointer border border-secondary/50  transition-all duration-300 bg-white"
+            className="group cursor-pointer border border-primary/50  transition-all duration-300 bg-white"
             onClick={() => setSelectedItem(item)}
           >
             <CardContent className="p-0">
@@ -45,7 +45,7 @@ export function MenuItems({ items, categoryName, onAddToCart }: MenuItemsProps) 
                       <div className="flex items-center gap-2 mb-2">
                         <h3 className="font-heading font-semibold text-lg text-foreground">{item.name}</h3>
                         {item.popular && (
-                          <Badge className="bg-secondary  p-[6px]">
+                          <Badge className="bg-primary  p-[6px]">
                             <Star className="w-3 h-3 mr-1" />
                             Popular
                           </Badge>
@@ -70,7 +70,7 @@ export function MenuItems({ items, categoryName, onAddToCart }: MenuItemsProps) 
                         onAddToCart(item, {}, 1)
                       }
                     }}
-                    className="bg-secondary cursor-pointer hover:text-white hover:bg-secondary/80 text-white"
+                    className="bg-primary text-white cursor-pointer"
                   >
                     <Plus className="w-4 h-4 mr-2" />
                     Add to Cart

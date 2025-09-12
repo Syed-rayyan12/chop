@@ -37,7 +37,7 @@ export function RestaurantGrid({ restaurants, viewMode }: RestaurantGridProps) {
             transition={{ duration: 0.3 }}
           >
             <Link href={`/restaurant/${restaurant.id}`}>
-              <Card className="group cursor-pointer  transition-all duration-300 border-secondary/50">
+              <Card className="group cursor-pointer  transition-all duration-300 border-primary/50 bg-white">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
                     src={restaurant.image || "/placeholder.svg"}
@@ -86,7 +86,7 @@ export function RestaurantGrid({ restaurants, viewMode }: RestaurantGridProps) {
 
                   <div className="flex gap-1">
                     {restaurant.tags.slice(0, 3).map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs bg-[#0F3D2E] text-white hover:bg-secondary">
+                      <Badge key={tag} variant="outline" className="text-xs bg-primary text-white hover:bg-primary">
                         {tag}
                       </Badge>
                     ))}
@@ -114,7 +114,7 @@ export function RestaurantGrid({ restaurants, viewMode }: RestaurantGridProps) {
             transition={{ duration: 0.3 }}
           >
             <Link href={`/restaurant/${restaurant.id}`}>
-              <Card className="group cursor-pointer border-secondary/50 transition-all duration-300 bg-white">
+              <Card className="group cursor-pointer border-primary/50 transition-all duration-300 bg-white">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
                     src={restaurant.image || "/placeholder.svg"}
@@ -122,7 +122,7 @@ export function RestaurantGrid({ restaurants, viewMode }: RestaurantGridProps) {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   {restaurant.featured && (
-                    <Badge className="absolute top-3 left-3 bg-secondary text-primary-foreground">
+                    <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground">
                       Featured
                     </Badge>
                   )}
@@ -150,8 +150,8 @@ export function RestaurantGrid({ restaurants, viewMode }: RestaurantGridProps) {
                       <span>{restaurant.deliveryTime}</span>
                     </div>
                     <div className="flex items-center space-x-1 text-muted-foreground">
-                      <Truck className="w-4 h-4 text-secondary" />
-                      <span className="text-secondary">
+                      <Truck className="w-4 h-4 text-primary" />
+                      <span className="text-primary">
                         {restaurant.deliveryFee === 0 ? "Free" : `$${restaurant.deliveryFee}`}
                       </span>
                     </div>
@@ -163,7 +163,7 @@ export function RestaurantGrid({ restaurants, viewMode }: RestaurantGridProps) {
 
                   <div className="flex gap-1">
                     {restaurant.tags.slice(0, 3).map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs bg-secondary border-none text-white hover:bg-secondary">
+                      <Badge key={tag} variant="outline" className="text-xs bg-primary border-none text-white hover:bg-primary">
                         {tag}
                       </Badge>
                     ))}

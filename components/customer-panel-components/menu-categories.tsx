@@ -11,15 +11,15 @@ interface MenuCategoriesProps {
 
 export function MenuCategories({ categories, selectedCategory, onCategoryChange }: MenuCategoriesProps) {
   return (
-    <Card className="sticky top-24 border border-secondary/50 bg-white">
+    <Card className="sticky top-24 border border-primary/50 bg-white">
       <CardContent className="p-4">
         <h2 className="font-heading font-semibold text-lg  text-foreground mb-4">Menu Categories</h2>
         <div className="space-y-2">
           {categories.map((category) => (
             <Button
               key={category.id}
-              variant={selectedCategory === category.id ? "secondary" : "white"}
-              className="w-full justify-between"
+              variant={selectedCategory === category.id ? "default" : "outline"}
+              className="w-full justify-between cursor-pointer"
               onClick={() => onCategoryChange(category.id)}
             >
               <span className={selectedCategory === category.id ? "text-white" : "opacity/70"}>{category.name}</span>

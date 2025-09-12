@@ -158,7 +158,7 @@ export function OffersPage() {
                 variant={activeFilter === filter ? "default" : "outline"}
                 size="sm"
                 onClick={() => setActiveFilter(filter)}
-                className={activeFilter === filter ? "bg-[#FF7A00] border border-secondary hover:bg-[#FF7A00]/90 text-white" : ""}
+                className={activeFilter === filter ? "bg-primary border border-primary/50 hover:bg-primary/90 text-white cursor-pointer" : "bg-primary text-white cursor-pointer"}
               >
                 {filter}
               </Button>
@@ -171,15 +171,15 @@ export function OffersPage() {
             placeholder="Search restaurants or cuisines..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 w-96  border border-secondary/50 bg-white max-sm:w-full"
+            className="pl-10 w-96  border border-primary/50 bg-white max-sm:w-full"
           />
         </div>
 
           {/* Sort and Nearby Toggle */}
           <div className="flex items-center gap-4">
             <DropdownMenu>
-              <DropdownMenuTrigger className="border-secondary/50 border hover:bg-none bg-white text-foreground " asChild>
-                <Button className="hover:bg-none border-secondary/50 text-foreground cursor-pointer" variant="my" size="sm">
+              <DropdownMenuTrigger className="border-primary/50 border hover:bg-none bg-white text-foreground " asChild>
+                <Button className="bg-primary text-white border-primary/50 cursor-pointer" variant="outline" size="sm">
                   Sort by: {sortBy} <ChevronDown className="ml-2 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -223,7 +223,7 @@ export function OffersPage() {
             filteredAndSortedOffers.map((offer) => (
               <Card
                 key={offer.id}
-                className="group overflow-hidden border border-secondary/50 bg-white transition-all duration-300  hover:-translate-y-1"
+                className="group overflow-hidden border border-primary/50 bg-white transition-all duration-300  hover:-translate-y-1"
               >
                 <div className="relative">
                   <img
@@ -233,12 +233,12 @@ export function OffersPage() {
                   />
 
                   {/* Discount Badge */}
-                  <Badge className="absolute top-3 left-3 bg-secondary  text-accent-foreground font-semibold">
+                  <Badge className="absolute top-3 left-3 bg-primary  text-accent-foreground font-semibold">
                     {offer.discount}
                   </Badge>
 
                   {/* Restaurant Logo */}
-                  <div className="absolute -bottom-6 left-4 h-12 w-12 rounded-full border-2 border-card bg-card p-1">
+                  <div className="absolute -bottom-6 left-4 h-12 w-12 rounded-full border-2 border-primary/50 bg-card p-1">
                     <img
                       src={offer.logo || "/placeholder.svg"}
                       alt={`${offer.name} logo`}
@@ -273,7 +273,7 @@ export function OffersPage() {
 
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-card-foreground">{offer.priceRange}</span>
-                    <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                    <Button size="sm" className="bg-primary text-white cursor-pointer">
                       Order Now
                     </Button>
                   </div>
@@ -291,7 +291,7 @@ export function OffersPage() {
         {/* Load More Button */}
         {filteredAndSortedOffers.length > 0 && (
           <div className="mt-8 text-center">
-            <Button variant="outline" size="lg" className="bg-secondary text-white border-none hover:bg-secondary/80">
+            <Button variant="outline" size="lg" className="bg-primary text-white border-none cursor-pointer">
               Load More Offers
             </Button>
           </div>

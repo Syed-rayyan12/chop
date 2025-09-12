@@ -40,14 +40,14 @@ export function RestaurantHeader({ restaurant }: RestaurantHeaderProps) {
 
       {/* Restaurant Info */}
       <div className="container   mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative -mt-16 bg-white rounded-lg  border border-secondary/50 p-6">
+        <div className="relative -mt-16 bg-white rounded-lg  border border-primary/50 p-6">
           <div className="flex flex-col md:flex-row gap-6">
             {/* Restaurant Logo */}
             <div className="flex-shrink-0">
               <img
                 src={restaurant.image || "/placeholder.svg"}
                 alt={restaurant.name}
-                className="w-24 h-24 rounded-lg object-cover border-4 border-background shadow-md"
+                className="w-24 h-24 rounded-lg object-cover border-4 border-primary/50 shadow-md"
               />
             </div>
 
@@ -64,8 +64,8 @@ export function RestaurantHeader({ restaurant }: RestaurantHeaderProps) {
                       <span className="font-medium">{restaurant.rating}</span>
                       <span className="text-muted-foreground">({restaurant.reviewCount} reviews)</span>
                     </div>
-                    <Badge variant="outline">{restaurant.cuisine}</Badge>
-                    <Badge variant="outline">{restaurant.priceRange}</Badge>
+                    <Badge variant="outline" className="bg-primary text-white">{restaurant.cuisine}</Badge>
+                    <Badge variant="outline" className="bg-primary text-white">{restaurant.priceRange}</Badge>
                   </div>
                   <p className="text-muted-foreground mb-4 max-w-2xl">{restaurant.description}</p>
                 </div>
@@ -109,7 +109,7 @@ export function RestaurantHeader({ restaurant }: RestaurantHeaderProps) {
               </div>
 
               {/* Contact Info */}
-              <div className="flex flex-col sm:flex-row gap-4 mt-4 pt-4 border-t border-border">
+              <div className="flex flex-col sm:flex-row gap-4 mt-4 pt-4 border-t border-primary/50">
                 <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                   <MapPin className="w-4 h-4 text-secondary" />
                   <span className="text-secondary">{restaurant.address}</span>

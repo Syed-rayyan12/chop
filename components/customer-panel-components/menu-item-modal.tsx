@@ -75,7 +75,7 @@ export function MenuItemModal({ item, isOpen, onClose, onAddToCart }: MenuItemMo
             <div className="flex items-center gap-2 mb-2">
               <h2 className="font-heading font-semibold text-2xl text-foreground">{item.name}</h2>
               {item.popular && (
-                <Badge className="bg-secondary text-primary-foreground">
+                <Badge className="bg-primary text-primary-foreground">
                   <Star className="w-3 h-3 mr-1" />
                   Popular
                 </Badge>
@@ -103,7 +103,7 @@ export function MenuItemModal({ item, isOpen, onClose, onAddToCart }: MenuItemMo
                 >
                   {customization.options.map((option) => (
                     <div key={option.id} className="flex items-center space-x-2">
-                      <RadioGroupItem value={option.id} id={option.id} className="border border-foreground" />
+                      <RadioGroupItem value={option.id} id={option.id} className="border border-primary/50" />
                       <Label htmlFor={option.id} className="flex-1 cursor-pointer">
                         <div className="flex justify-between">
                           <span>{option.name}</span>
@@ -118,7 +118,7 @@ export function MenuItemModal({ item, isOpen, onClose, onAddToCart }: MenuItemMo
                   {customization.options.map((option) => (
                     <div key={option.id} className="flex items-center space-x-2">
                       <Checkbox
-                      className="border-border-foreground"
+                      className="border-primary/50"
                         id={option.id}
                         checked={
                           customizations[customization.id]?.some((selected: any) => selected.id === option.id) || false
@@ -149,23 +149,24 @@ export function MenuItemModal({ item, isOpen, onClose, onAddToCart }: MenuItemMo
           ))}
 
           {/* Quantity and Add to Cart */}
-          <div className="flex items-center max-sm:gap-4 justify-between pt-4 border-t border-border">
+          <div className="flex items-center max-sm:gap-4 justify-between pt-4 border-t border-primary/50">
             <div className="flex items-center space-x-3">
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
                 disabled={quantity <= 1}
+                className="bg-primary text-white cursor-pointer"
               >
                 <Minus className="w-4 h-4" />
               </Button>
               <span className="font-medium text-lg w-8 text-center">{quantity}</span>
-              <Button variant="outline" size="sm" onClick={() => setQuantity(quantity + 1)}>
+              <Button variant="outline" size="sm" onClick={() => setQuantity(quantity + 1)} className="bg-primary text-white cursor-pointer">
                 <Plus className="w-4 h-4" />
               </Button>
             </div>
 
-            <Button onClick={handleAddToCart} size="lg" className="font-medium    hover:text-white bg-secondary hover:bg-secondary/80 text-white">
+            <Button onClick={handleAddToCart} size="lg" className="font-medium bg-primary text-white cursor-pointer">
               Add to Cart • ${calculateTotalPrice().toFixed(2)}
             </Button>
           </div>

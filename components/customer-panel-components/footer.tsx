@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Smartphone, Monitor } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-secondary/40">
+    <footer className="bg-white border-t border-primary/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -83,7 +83,7 @@ export function Footer() {
             {/* <div className="space-y-3">
               <Link
                 href="#"
-                className="flex items-center space-x-3 p-3 border border-border bg-foreground rounded-lg transition-colors"
+                className="flex items-center space-x-3 p-3 border border-primary/50 bg-foreground rounded-lg transition-colors"
               >
                 <Smartphone className="w-6 h-6 text-secondary" />
                 <div>
@@ -93,7 +93,7 @@ export function Footer() {
               </Link>
               <Link
                 href="#"
-                className="flex items-center space-x-3 p-3 border border-border rounded-lg bg-background transition-colors"
+                className="flex items-center space-x-3 p-3 border border-primary/50 rounded-lg bg-background transition-colors"
               >
                 <Monitor className="w-6 h-6 text-secondary" />
                 <div>
@@ -116,7 +116,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-secondary/60 mt-8 pt-8 text-center">
+        <div className="border-t border-primary/50 mt-8 pt-8 text-center">
           <p className="text-foreground">© 2024 Chop Now. All rights reserved. Made with ❤️ for food lovers.</p>
         </div>
       </div>

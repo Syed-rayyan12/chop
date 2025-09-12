@@ -21,7 +21,7 @@ export function RestaurantRiderNavbar() {
   }
 
   return (
-    <nav className="bg-[#ff7A00] border-border px-4 py-3">
+    <nav className="bg-[#ff7A00] border-primary/50 px-4 py-3">
       <div className="max-w-7xl max-sm:flex-col max-sm:gap-3 max-sm:items-center mx-auto flex items-center justify-between">
         {/* Logo / Brand */}
         <div className="flex items-center space-x-2">
@@ -37,7 +37,7 @@ export function RestaurantRiderNavbar() {
           <DropdownMenuTrigger asChild>
             <div className="relative flex items-center">
               <Button
-                className="bg-background text-foreground px-4 flex border-none hover:bg-none cursor-pointer items-center justify-between gap-2"
+                className="bg-primary text-white px-4 flex border-none hover:bg-none cursor-pointer items-center justify-between gap-2"
                 variant="my"
               >
                 Select Panel

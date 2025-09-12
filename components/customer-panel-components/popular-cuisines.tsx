@@ -73,7 +73,7 @@ export function PopularCuisines() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
           {popularCuisines.map((cuisine) => (
             <Link key={cuisine.id} href="/restaurants" passHref>
-              <Card className="group cursor-pointer transition-all duration-300 border-secondary/50 bg-white">
+              <Card className="group cursor-pointer transition-all duration-300 border-primary/50 bg-white">
                 <CardContent className="p-4 text-center">
                   <div className="relative overflow-hidden rounded-lg mb-3">
                     <img

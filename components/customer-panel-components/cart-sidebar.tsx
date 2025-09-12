@@ -41,7 +41,7 @@ export function CartSidebar({ isOpen, onClose, restaurant }: CartSidebarProps) {
             </div>
             <h3 className="font-heading font-semibold text-lg text-foreground mb-2">Your cart is empty</h3>
             <p className="text-muted-foreground mb-4">Add some delicious items from {restaurant.name}</p>
-            <Button onClick={onClose}>Continue Shopping</Button>
+            <Button onClick={onClose} className="bg-primary text-white cursor-pointer">Continue Shopping</Button>
           </div>
         </SheetContent>
       </Sheet>
@@ -59,7 +59,7 @@ export function CartSidebar({ isOpen, onClose, restaurant }: CartSidebarProps) {
         <div className="flex-1 overflow-y-auto py-4 px-6">
           <div className="space-y-4">
             {items.map((item) => (
-              <div key={item.id} className="flex gap-3 p-3 border border-secondary/50 bg-white rounded-lg">
+              <div key={item.id} className="flex gap-3 p-3 border border-primary/50 bg-white rounded-lg">
                 <img
                   src={item.menuItem.image || "/italian-restaurant-food.png"}
                   alt={item.menuItem.name}
@@ -84,7 +84,7 @@ export function CartSidebar({ isOpen, onClose, restaurant }: CartSidebarProps) {
                         variant="outline"
                         size="sm"
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="h-8 w-8 p-0"
+                        className="h-8 w-8 p-0 bg-primary text-white cursor-pointer"
                       >
                         <Minus className="w-3 h-3" />
                       </Button>
@@ -93,7 +93,7 @@ export function CartSidebar({ isOpen, onClose, restaurant }: CartSidebarProps) {
                         variant="outline"
                         size="sm"
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="h-8 w-8 p-0"
+                        className="h-8 w-8 p-0 bg-primary text-white cursor-pointer"
                       >
                         <Plus className="w-3 h-3" />
                       </Button>
@@ -104,7 +104,7 @@ export function CartSidebar({ isOpen, onClose, restaurant }: CartSidebarProps) {
                         variant="ghost"
                         size="sm"
                         onClick={() => removeItem(item.id)}
-                        className="h-8 w-8 p-0 text-destructive hover:text-white"
+                        className="h-8 w-8 p-0 bg-primary text-white cursor-pointer"
                       >
                         <Trash2 className="w-3 h-3 " />
                       </Button>
@@ -117,7 +117,7 @@ export function CartSidebar({ isOpen, onClose, restaurant }: CartSidebarProps) {
         </div>
 
         {/* Order Summary */}
-        <div className="border-t border-secondary/50 p-6 space-y-3">
+        <div className="border-t border-primary/50 p-6 space-y-3">
           <div className="flex justify-between text-sm">
             <span>Subtotal</span>
             <span className="text-secondary">${subtotal.toFixed(2)}</span>
@@ -146,12 +146,12 @@ export function CartSidebar({ isOpen, onClose, restaurant }: CartSidebarProps) {
           )}
 
           <div className="space-y-2">
-            <Button className="w-full bg-secondary hover:bg-secondary/80" size="lg" disabled={!isMinimumMet} asChild>
+            <Button className="w-full bg-primary text-white cursor-pointer" size="lg" disabled={!isMinimumMet} asChild>
               <Link href="/cart" onClick={onClose}>
                 View Cart & Checkout
               </Link>
             </Button>
-            <Button  className="w-full bg-secondary/80 border-none hover:bg-secondary cursor-pointer border borde-secondary hover:border-none" onClick={onClose}>
+            <Button  className="w-full bg-primary text-white border-none cursor-pointer" onClick={onClose}>
               Continue Shopping
             </Button>
           </div>

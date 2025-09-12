@@ -71,14 +71,14 @@ export function SearchBar({ value, onChange, placeholder = "Search..." }: Search
           onChange={(e) => onChange(e.target.value)}
           onFocus={() => value.length > 0 && setShowSuggestions(filteredSuggestions.length > 0)}
           onBlur={() => setTimeout(() => setShowSuggestions(false), 200)}
-          className="pl-10 pr-10 h-12 text-lg  border border-secondary/40"
+          className="pl-10 pr-10 h-12 text-lg  border border-primary/50"
         />
         {value && (
           <Button
             variant="ghost"
             size="sm"
             onClick={clearSearch}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 h-8 w-8 p-0 bg-primary text-white cursor-pointer"
           >
             <X className="w-4 h-4" />
           </Button>
@@ -87,12 +87,12 @@ export function SearchBar({ value, onChange, placeholder = "Search..." }: Search
 
       {/* Suggestions Dropdown */}
       {showSuggestions && (
-        <div className="absolute top-full left-0 right-0 mt-1 bg-background border border-border rounded-md shadow-lg z-50">
+        <div className="absolute top-full left-0 right-0 mt-1 bg-background border border-primary/50 rounded-md shadow-lg z-50">
           {filteredSuggestions.map((suggestion, index) => (
             <button
               key={index}
               onClick={() => handleSuggestionClick(suggestion)}
-              className="w-full px-4 py-3 text-left hover:bg-muted transition-colors border-b border-border last:border-b-0"
+              className="w-full px-4 py-3 text-left hover:bg-muted transition-colors border-b border-primary/50 last:border-b-0 cursor-pointer"
             >
               <div className="flex items-center">
                 <Search className="w-4 h-4 text-muted-foreground mr-3" />

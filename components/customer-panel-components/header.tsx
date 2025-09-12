@@ -213,7 +213,7 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50  py-2 bg-white border-b border-secondary/40  ">
+    <header className="sticky top-0 z-50  py-2 bg-white border-b border-primary/50  ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
@@ -225,7 +225,7 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-2 text-foreground">
             <MapPin className="w-4 h-4 text-foreground" />
             <span className="text-sm text-foreground">Deliver to</span>
-            <Button variant="ghost" size="sm" className=" font-medium bg-white">
+            <Button variant="ghost" size="sm" className=" font-medium cursor-pointer">
               Current Location
             </Button>
           </div>
@@ -235,18 +235,18 @@ export function Header() {
             <Link href="/restaurants" className="text-foreground hover:text-secondary transition-colors ">
               Restaurants
             </Link>
-            <Link href="/offers" className="text-foreground hover:text-secondary transition-colors ">
+            <Link href="/offers" className="text-foreground hover:text-secondary transition-colors">
               Offers
             </Link>
           </nav>
 
           {/* Actions */}
           <div className="flex items-center space-x-2">
-            <Button variant="tertiary" size="sm" className="relative" asChild>
+            <Button variant="tertiary" size="sm" className="relative  text-foreground cursor-pointer" asChild>
               <Link href="/cart">
                 <ShoppingCart className="w-5 h-5 text-foreground" />
                 {cartCount > 0 && (
-                  <Badge className="absolute bg-secondary -top-1 -right-1 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center p-0">
+                  <Badge className="absolute bg-primary text-white -top-1 -right-1 text-xs rounded-full w-5 h-5 flex items-center justify-center p-0">
                     {cartCount > 99 ? "99+" : cartCount}
                   </Badge>
                 )}
@@ -255,7 +255,7 @@ export function Header() {
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="tertiary" size="sm" className="flex items-center gap-2 cursor-pointer">
+                  <Button variant="tertiary" size="sm" className="flex items-center gap-2 cursor-pointer">
                   <User className="w-5 h-5 text-foreground" />
                 </Button>
               </DropdownMenuTrigger>
@@ -293,7 +293,7 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button variant="ghost" size="sm" className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <Button variant="ghost" size="sm" className="md:hidden cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="w-5 h-5 transition-all duration-300" /> : <Menu className="w-5 h-5 transition-all duration-300" />}
             </Button>
           </div>
@@ -301,7 +301,7 @@ export function Header() {
 
         {/* Mobile Menu (fixed height + smooth animation) */}
         <div
-          className={`md:hidden  border-border transition-all duration-500 overflow-hidden ${
+          className={`md:hidden  border-primary/50 transition-all duration-500 overflow-hidden ${
             isMenuOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0 py-0"
           }`}
         >

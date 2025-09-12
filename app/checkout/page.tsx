@@ -197,7 +197,7 @@ export default function CheckoutPage() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="flex items-center gap-4 mb-8">
-            <Button variant="ghost" size="sm" onClick={() => router.back()}>
+            <Button variant="ghost" size="sm" onClick={() => router.back()} className="cursor-pointer">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Cart
             </Button>
@@ -211,7 +211,7 @@ export default function CheckoutPage() {
             {/* Checkout Form */}
             <div className="lg:col-span-2 space-y-6">
               {/* Delivery Address */}
-              <Card className="border border-secondary/50 bg-white">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MapPin className="w-5 h-5 text-foreground" />
@@ -240,12 +240,12 @@ export default function CheckoutPage() {
                     <Button
                       variant="outline"
                       onClick={() => setShowNewAddressForm(true)}
-                      className="w-full border-none text-white bg-secondary cursor-pointer"
+                      className="w-full border-none text-white bg-primary cursor-pointer"
                     >
                       Add New Address
                     </Button>
                   ) : (
-                    <div className="space-y-3 p-4 border border-secondary/50 rounded-lg">
+                    <div className="space-y-3 p-4 border border-primary/50 rounded-lg">
                       <div className="grid grid-cols-2 gap-3">
                         <div>
                           <Label htmlFor="label" className="mb-2">Address Label</Label>
@@ -254,7 +254,7 @@ export default function CheckoutPage() {
                             placeholder="e.g., Home, Work"
                             value={newAddress.label}
                             onChange={(e) => setNewAddress({ ...newAddress, label: e.target.value })}
-                            className="border border-secondary/50"
+                            className="border border-primary/50"
                           />
                         </div>
                       </div>
@@ -265,7 +265,7 @@ export default function CheckoutPage() {
                           placeholder="Street address, apartment, city"
                           value={newAddress.address}
                           onChange={(e) => setNewAddress({ ...newAddress, address: e.target.value })}
-                          className="border border-secondary/50 "
+                          className="border border-primary/50 "
                         />
                       </div>
                       <div>
@@ -275,14 +275,14 @@ export default function CheckoutPage() {
                           placeholder="e.g., Ring doorbell, Leave at door"
                           value={newAddress.details}
                           onChange={(e) => setNewAddress({ ...newAddress, details: e.target.value })}
-                          className="border border-secondary/50 "
+                          className="border border-primary/50 "
                         />
                       </div>
                       <div className="flex gap-2">
-                        <Button onClick={handleAddNewAddress} variant="secondary" size="sm" className="bg-secondary hover:bg-none cursor-pointer">
+                        <Button onClick={handleAddNewAddress} variant="secondary" size="sm" className="bg-primary text-white cursor-pointer">
                           Add Address
                         </Button>
-                        <Button variant="outline" onClick={() => setShowNewAddressForm(false)} size="sm" className="bg-secondary/80 border-none cursor-pointer text-white">
+                        <Button variant="outline" onClick={() => setShowNewAddressForm(false)} size="sm" className="bg-primary text-white border-none cursor-pointer">
                           Cancel
                         </Button>
                       </div>
@@ -292,7 +292,7 @@ export default function CheckoutPage() {
               </Card>
 
               {/* Payment Method */}
-              <Card className="border border-secondary/50 bg-white">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CreditCard className="w-5 h-5 text-foreground" />
@@ -318,7 +318,7 @@ export default function CheckoutPage() {
 
                   {/* Card Details Form (shown when card is selected) */}
                   {selectedPayment === "card" && (
-                    <div className="space-y-3 p-4 border border-secondary/50 rounded-lg">
+                    <div className="space-y-3 p-4 border border-primary/50 rounded-lg">
                       <div className="grid grid-cols-2 gap-3">
                         <div>
                           <Label htmlFor="cardName" className="mb-2">Cardholder Name</Label>
@@ -327,7 +327,7 @@ export default function CheckoutPage() {
                             placeholder="John Doe"
                             value={cardDetails.name}
                             onChange={(e) => setCardDetails({ ...cardDetails, name: e.target.value })}
-                            className="border border-secondary/50"
+                            className="border border-primary/50"
                           />
                         </div>
                         <div>
@@ -337,7 +337,7 @@ export default function CheckoutPage() {
                             placeholder="1234 5678 9012 3456"
                             value={cardDetails.number}
                             onChange={(e) => setCardDetails({ ...cardDetails, number: e.target.value })}
-                            className="border border-secondary/50"
+                            className="border border-primary/50"
                           />
                         </div>
                       </div>
@@ -349,7 +349,7 @@ export default function CheckoutPage() {
                             placeholder="MM/YY"
                             value={cardDetails.expiry}
                             onChange={(e) => setCardDetails({ ...cardDetails, expiry: e.target.value })}
-                            className="border border-secondary/50"
+                            className="border border-primary/50"
                           />
                         </div>
                         <div>
@@ -359,7 +359,7 @@ export default function CheckoutPage() {
                             placeholder="123"
                             value={cardDetails.cvv}
                             onChange={(e) => setCardDetails({ ...cardDetails, cvv: e.target.value })}
-                            className="border border-secondary/50"
+                            className="border border-primary/50"
                           />
                         </div>
                       </div>
@@ -369,7 +369,7 @@ export default function CheckoutPage() {
               </Card>
 
               {/* Delivery Instructions */}
-              <Card className="border border-secondary/50 bg-white">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Truck className="w-5 h-5 text-center text-foreground"  />
@@ -383,7 +383,7 @@ export default function CheckoutPage() {
                     value={deliveryInstructions}
                     onChange={(e) => setDeliveryInstructions(e.target.value)}
                     rows={3}
-                    className="border border-secondary/50"
+                    className="border border-primary/50"
                   />
                 </CardContent>
               </Card>
@@ -391,7 +391,7 @@ export default function CheckoutPage() {
 
             {/* Order Summary */}
             <div className="space-y-6">
-              <Card className="border border-secondary/50 bg-white">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
                   <CardTitle className="text-foreground">Order Summary</CardTitle>
                 </CardHeader>
@@ -464,7 +464,7 @@ export default function CheckoutPage() {
                   <Button
                     onClick={handlePlaceOrder}
                     disabled={isProcessing || !selectedAddress || !selectedPayment}
-                    className="w-full"
+                    className="w-full bg-primary text-white cursor-pointer"
                     size="lg"
                   >
                     {isProcessing ? "Processing..." : `Place Order • $${finalTotal.toFixed(2)}`}

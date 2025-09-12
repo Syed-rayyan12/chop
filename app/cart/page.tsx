@@ -60,7 +60,7 @@ export default function CartPage() {
             <p className="text-muted-foreground mb-8">
               Looks like you haven't added any items to your cart yet. Start browsing our delicious options!
             </p>
-            <Button asChild size="lg">
+            <Button asChild size="lg" className="cursor-pointer">
               <Link href="/restaurants">Browse Restaurants</Link>
             </Button>
           </div>
@@ -83,7 +83,7 @@ export default function CartPage() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="flex items-center gap-4 mb-8">
-            <Button variant="ghost" size="sm" onClick={() => router.back()}>
+            <Button variant="ghost" size="sm" onClick={() => router.back()} className="cursor-pointer">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back
             </Button>
@@ -96,7 +96,7 @@ export default function CartPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Cart Items */}
             <div className="lg:col-span-2 space-y-4">
-              <Card className="border border-secondary/50 bg-white">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader className="flex flex-row items-center justify-between">
                   <CardTitle className="text-foreground">Order Items ({items.length})</CardTitle>
                   <Button variant="ghost" size="sm" onClick={clearCart} className=" bg-secondary text-white cursor-pointer">
@@ -106,7 +106,7 @@ export default function CartPage() {
                 </CardHeader>
                 <CardContent className="space-y-4 ">
                   {items.map((item) => (
-                    <div key={item.id} className="flex max-sm:flex-col gap-4 p-4 border border-secondary/50 rounded-lg">
+                    <div key={item.id} className="flex max-sm:flex-col gap-4 p-4 border border-primary/50 rounded-lg">
                       <img
                         src={item.menuItem.image || "/placeholder.svg"}
                         alt={item.menuItem.name}
@@ -137,7 +137,7 @@ export default function CartPage() {
                               variant="outline"
                               size="sm"
                               onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                              className="h-8 w-8 p-0"
+                              className="h-8 w-8 p-0 cursor-pointer"
                             >
                               <Minus className="w-3 h-3" />
                             </Button>
@@ -146,7 +146,7 @@ export default function CartPage() {
                               variant="outline"
                               size="sm"
                               onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                              className="h-8 w-8 p-0"
+                              className="h-8 w-8 p-0 cursor-pointer"
                             >
                               <Plus className="w-3 h-3" />
                             </Button>
@@ -157,7 +157,7 @@ export default function CartPage() {
                               variant="ghost"
                               size="sm"
                               onClick={() => removeItem(item.id)}
-                              className="text-destructive hover:text-white p-1"
+                              className="text-destructive hover:text-white p-1 cursor-pointer"
                             >
                               <Trash2 className="w-4 h-4 " />
                             </Button>
@@ -173,7 +173,7 @@ export default function CartPage() {
             {/* Order Summary */}
             <div className="space-y-6">
               {/* Promo Code */}
-              <Card className="border border-secondary/50 bg-white">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2 font-semibold text-foreground">
                     <Tag className="w-5 h-5" />
@@ -191,7 +191,7 @@ export default function CartPage() {
                             : `$${appliedPromo.discount} off`}
                         </p>
                       </div>
-                      <Button variant="ghost" size="sm" onClick={removePromoCode}>
+                      <Button variant="ghost" size="sm" onClick={removePromoCode} className="cursor-pointer">
                         <Trash2 className="w-4 h-4" />
                       </Button>
                     </div>
@@ -208,7 +208,7 @@ export default function CartPage() {
                           }}
                           onKeyPress={(e) => e.key === "Enter" && handleApplyPromo()}
                         />
-                        <Button onClick={handleApplyPromo} disabled={!promoInput.trim()}>
+                        <Button onClick={handleApplyPromo} disabled={!promoInput.trim()} className="cursor-pointer">
                           Apply
                         </Button>
                       </div>
@@ -222,7 +222,7 @@ export default function CartPage() {
               </Card>
 
               {/* Order Summary */}
-              <Card className="border border-secondary/50 bg-white">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
                   <CardTitle className="font-semibold text-foreground">Order Summary</CardTitle>
                 </CardHeader>
@@ -245,11 +245,11 @@ export default function CartPage() {
                     <span className="text-secondary">${finalTotal.toFixed(2)}</span>
                   </div>
 
-                  <Button onClick={handleProceedToCheckout} className="w-full bg-secondary/80 hover:bg-secondary cursor-pointer" size="lg">
+                  <Button onClick={handleProceedToCheckout} className="w-full bg-primary text-white cursor-pointer" size="lg">
                     Proceed to Checkout
                   </Button>
 
-                  <Button variant="outline" asChild className="w-full bg-secondary hover:bg-secondary/80 border-none text-white hover:border-none">
+                  <Button variant="outline" asChild className="w-full bg-primary text-white border-none cursor-pointer">
                     <Link href={`/restaurant/${restaurant.restaurantId}`}>Add More Items</Link>
                   </Button>
                 </CardContent>

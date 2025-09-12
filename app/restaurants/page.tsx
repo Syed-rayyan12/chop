@@ -279,7 +279,7 @@ export default function RestaurantsPage() {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as SortOption)}
-                  className="px-3 py-2 border border-secondary/40 bg-white rounded-md  text-foreground text-sm"
+                  className="px-3 py-2 border border-primary/50 bg-white rounded-md  text-foreground text-sm"
                 >
                   <option value="recommended">Recommended</option>
                   <option value="rating">Highest Rated</option>
@@ -288,7 +288,7 @@ export default function RestaurantsPage() {
                 </select>
 
                 {/* View Mode Toggle */}
-                <div className="flex max-sm:hidden border border-secondary/40 bg-white rounded-md">
+                <div className="flex max-sm:hidden border border-primary/50 bg-white rounded-md">
                   <Button
                     variant={viewMode === "grid" ? "default" : "ghost"}
                     size="sm"

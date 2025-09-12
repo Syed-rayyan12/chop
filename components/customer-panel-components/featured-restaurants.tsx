@@ -54,7 +54,7 @@ export function FeaturedRestaurants() {
         <div className="text-center mb-12">
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
             Featured{" "}
-            <span className="text-secondary animate-pulse">
+            <span className="text-primary animate-pulse">
               Restaurants
             </span>
           </h2>
@@ -67,7 +67,7 @@ export function FeaturedRestaurants() {
           {featuredRestaurants.map((restaurant) => (
 
             <Link key={restaurant.id} href="/restaurants" passHref>
-              <Card className="group cursor-pointer transition-all duration-300 bg-white border-secondary/50">
+              <Card className="group cursor-pointer transition-all duration-300 bg-white border-primary/50">
                 <div className="relative overflow-hidden rounded-t-lg">
                   <img
                     src={restaurant.image || "/placeholder.svg"}
@@ -75,7 +75,7 @@ export function FeaturedRestaurants() {
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   {restaurant.featured && (
-                    <Badge className="absolute top-3 left-3 bg-secondary text-primary-foreground">
+                    <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground">
                       Featured
                     </Badge>
                   )}
@@ -96,8 +96,8 @@ export function FeaturedRestaurants() {
                       <span>{restaurant.deliveryTime}</span>
                     </div>
                     <div className="flex items-center space-x-1 text-muted-foreground">
-                      <Truck className="w-4 h-4 text-secondary" />
-                      <span className="text-secondary font-bold">{restaurant.deliveryFee}</span>
+                      <Truck className="w-4 h-4 text-primary" />
+                      <span className="text-primary font-bold">{restaurant.deliveryFee}</span>
                     </div>
                   </div>
                 </CardContent>

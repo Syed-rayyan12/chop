@@ -68,7 +68,7 @@ export function RestaurantFilters({
       <div className="flex items-start justify-between">
         <h2 className="font-heading font-semibold text-lg mb-7">Filters</h2>
         {hasActiveFilters && (
-          <button onClick={clearAllFilters} className="text-sm  hover:text-white cursor-pointer transition-colors bg-secondary rounded-md text-white p-2">
+          <button onClick={clearAllFilters} className="text-sm bg-primary text-white cursor-pointer transition-colors rounded-md p-2">
             Clear all
           </button>
         )}
@@ -101,7 +101,7 @@ export function RestaurantFilters({
       )}
 
       {/* Cuisine Filter */}
-      <Card className="border-secondary/50 bg-white mb-4">
+      <Card className="border-primary/50 bg-white mb-4">
         <CardHeader className="pb-3">
           <CardTitle className="text-base">Cuisine Type</CardTitle>
         </CardHeader>
@@ -109,7 +109,7 @@ export function RestaurantFilters({
           {cuisineOptions.map((cuisine) => (
             <div key={cuisine} className="flex items-center space-x-2">
               <Checkbox
-              className="border-black transition-all duration-300"
+              className="border-primary/50 transition-all duration-300"
                 id={cuisine}
                 checked={selectedCuisines.includes(cuisine)}
                 onCheckedChange={(checked) => handleCuisineChange(cuisine, checked as boolean)}
@@ -126,7 +126,7 @@ export function RestaurantFilters({
       </Card>
 
       {/* Price Range Filter */}
-      <Card className="border-secondary/50 bg-white mb-4">
+      <Card className="border-primary/50 bg-white mb-4">
         <CardHeader className="pb-3">
           <CardTitle className="text-base">Price Range</CardTitle>
         </CardHeader>
@@ -134,7 +134,7 @@ export function RestaurantFilters({
           {priceRangeOptions.map((option) => (
             <div key={option.value} className="flex items-center space-x-2">
               <Checkbox
-               className="border-black"
+               className="border-primary/50"
                 id={option.value}
                 checked={selectedPriceRanges.includes(option.value)}
                 onCheckedChange={(checked) => handlePriceRangeChange(option.value, checked as boolean)}
@@ -175,7 +175,7 @@ export function RestaurantFilters({
       </Card> */}
 
       {/* Rating Filter */}
-      <Card className="border-secondary/50 bg-white mb-4">
+      <Card className="border-primary/50 bg-white mb-4">
         <CardHeader className="pb-3">
           <CardTitle className="text-base">Minimum Rating</CardTitle>
         </CardHeader>
@@ -188,7 +188,7 @@ export function RestaurantFilters({
               max={5}
               min={0}
               step={0.5}
-              className="w-full border-secondary"
+              className="w-full border-primary/50"
             />
             <div className="flex justify-between text-sm text-muted-foreground">
               <span>Any</span>
