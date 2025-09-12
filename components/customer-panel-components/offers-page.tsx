@@ -158,7 +158,7 @@ export function OffersPage() {
                 variant={activeFilter === filter ? "default" : "outline"}
                 size="sm"
                 onClick={() => setActiveFilter(filter)}
-                className={activeFilter === filter ? "bg-primary border border-primary/50 hover:bg-primary/90 text-white cursor-pointer" : "bg-primary text-white cursor-pointer"}
+                className={activeFilter === filter ? "bg-primary border border-primary/50 hover:bg-primary/90 text-white cursor-pointer" : "border border-primary/50 text-primary cursor-pointer"}
               >
                 {filter}
               </Button>
@@ -179,7 +179,8 @@ export function OffersPage() {
           <div className="flex items-center gap-4">
             <DropdownMenu>
               <DropdownMenuTrigger className="border-primary/50 border hover:bg-none bg-white text-foreground " asChild>
-                <Button className="bg-primary text-white border-primary/50 cursor-pointer" variant="outline" size="sm">
+                <Button className=" text-foregroung
+                 border-primary/50 cursor-pointer" variant="outline" size="sm">
                   Sort by: {sortBy} <ChevronDown className="ml-2 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
@@ -300,3 +301,4 @@ export function OffersPage() {
     </div>
   )
 }
+

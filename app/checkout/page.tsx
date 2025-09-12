@@ -211,7 +211,7 @@ export default function CheckoutPage() {
             {/* Checkout Form */}
             <div className="lg:col-span-2 space-y-6">
               {/* Delivery Address */}
-              <Card className="border border-primary/50 bg-white">
+              <Card className="border border-primary/50 bg-white hover:border-primary/50 hover:translate-y-1">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <MapPin className="w-5 h-5 text-foreground" />
@@ -254,7 +254,7 @@ export default function CheckoutPage() {
                             placeholder="e.g., Home, Work"
                             value={newAddress.label}
                             onChange={(e) => setNewAddress({ ...newAddress, label: e.target.value })}
-                            className="border border-primary/50"
+                            className="border-gray-200"
                           />
                         </div>
                       </div>
@@ -265,7 +265,7 @@ export default function CheckoutPage() {
                           placeholder="Street address, apartment, city"
                           value={newAddress.address}
                           onChange={(e) => setNewAddress({ ...newAddress, address: e.target.value })}
-                          className="border border-primary/50 "
+                          className="border-gray-200"
                         />
                       </div>
                       <div>
@@ -275,7 +275,7 @@ export default function CheckoutPage() {
                           placeholder="e.g., Ring doorbell, Leave at door"
                           value={newAddress.details}
                           onChange={(e) => setNewAddress({ ...newAddress, details: e.target.value })}
-                          className="border border-primary/50 "
+                          className="border-gray-200"
                         />
                       </div>
                       <div className="flex gap-2">
@@ -292,7 +292,7 @@ export default function CheckoutPage() {
               </Card>
 
               {/* Payment Method */}
-              <Card className="border border-primary/50 bg-white">
+              <Card className="border border-primary/50 bg-white hover:border-primary/50 hover:translate-y-1">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <CreditCard className="w-5 h-5 text-foreground" />
@@ -327,7 +327,7 @@ export default function CheckoutPage() {
                             placeholder="John Doe"
                             value={cardDetails.name}
                             onChange={(e) => setCardDetails({ ...cardDetails, name: e.target.value })}
-                            className="border border-primary/50"
+                            className="border-gray-200"
                           />
                         </div>
                         <div>
@@ -337,7 +337,7 @@ export default function CheckoutPage() {
                             placeholder="1234 5678 9012 3456"
                             value={cardDetails.number}
                             onChange={(e) => setCardDetails({ ...cardDetails, number: e.target.value })}
-                            className="border border-primary/50"
+                            className="border-gray-200"
                           />
                         </div>
                       </div>
@@ -349,7 +349,7 @@ export default function CheckoutPage() {
                             placeholder="MM/YY"
                             value={cardDetails.expiry}
                             onChange={(e) => setCardDetails({ ...cardDetails, expiry: e.target.value })}
-                            className="border border-primary/50"
+                            className="border-gray-200"
                           />
                         </div>
                         <div>
@@ -359,7 +359,7 @@ export default function CheckoutPage() {
                             placeholder="123"
                             value={cardDetails.cvv}
                             onChange={(e) => setCardDetails({ ...cardDetails, cvv: e.target.value })}
-                            className="border border-primary/50"
+                            className="border-gray-200"
                           />
                         </div>
                       </div>
@@ -369,7 +369,7 @@ export default function CheckoutPage() {
               </Card>
 
               {/* Delivery Instructions */}
-              <Card className="border border-primary/50 bg-white">
+              <Card className="border border-primary/50 bg-white hover:border-primary/50 hover:translate-y-1">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-2">
                     <Truck className="w-5 h-5 text-center text-foreground"  />
@@ -383,7 +383,7 @@ export default function CheckoutPage() {
                     value={deliveryInstructions}
                     onChange={(e) => setDeliveryInstructions(e.target.value)}
                     rows={3}
-                    className="border border-primary/50"
+                    className="border-gray-200"
                   />
                 </CardContent>
               </Card>
@@ -391,7 +391,7 @@ export default function CheckoutPage() {
 
             {/* Order Summary */}
             <div className="space-y-6">
-              <Card className="border border-primary/50 bg-white">
+              <Card className="border border-primary/50 bg-white hover:border-primary/50 hover:translate-y-1">
                 <CardHeader>
                   <CardTitle className="text-foreground">Order Summary</CardTitle>
                 </CardHeader>
