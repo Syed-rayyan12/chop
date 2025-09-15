@@ -52,7 +52,48 @@ const FeatureSection = ({
   const features = items || defaultItems
 
   return (
-    <section className="mx-auto px-12 py-12 bg-white">
+    <section className="mx-auto relative px-12 py-12 bg-white">
+       <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="120"
+        height="120"
+        viewBox="0 0 160 160"
+        className="absolute top-4 left-8"
+      >
+        <g stroke="#0F3D2E" strokeWidth="4" fill="none">
+          <polygon points="30,30 50,50 30,70 10,50" className="float-1" />
+          <polygon points="70,70 90,90 70,110 50,90" className="float-2" />
+          <circle
+            cx="90"
+            cy="40"
+            r="6"
+            fill="#0F3D2E"
+            className="roll-dot"
+          />
+        </g>
+      </svg>
+
+      {/* Decorative bottom-right SVG */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="120"
+        height="120"
+        viewBox="0 0 160 160"
+        className="absolute bottom-0 max-sm:-bottom-20 max-sm:w-22 max-sm:h-22 right-0 opacity-[1px]"
+      >
+        <g stroke="#0F3D2E" strokeWidth="5" fill="none">
+          <path d="M20 40 L40 20 L60 40 L80 20 L100 40" />
+          <line x1="30" y1="70" x2="80" y2="70" />
+          <line x1="30" y1="90" x2="80" y2="90" />
+          <circle
+            cx="60"
+            cy="110"
+            r="6"
+            fill="#0F3D2E"
+            className="roll-left-right"
+          />
+        </g>
+      </svg>
       <div className="flex flex-col md:flex-row items-center gap-8">
         {/* Left: Image */}
         <div className="flex justify-center md:w-1/2 w-full">
