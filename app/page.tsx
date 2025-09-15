@@ -6,6 +6,7 @@ import { Footer } from "@/components/customer-panel-components/footer";
 import { Header } from "@/components/customer-panel-components/header";
 
 import { HeroSection } from "@/components/customer-panel-components/hero-section";
+import Marquee from "@/components/customer-panel-components/marquee";
 import MobileSection from "@/components/customer-panel-components/mobile-section";
 import { PopularCuisines } from "@/components/customer-panel-components/popular-cuisines";
 
@@ -19,6 +20,7 @@ export default function Page() {
         <FeaturedRestaurants />
         <PopularCuisines />
         <MobileSection/>
+        <Marquee/>
         <ComingSoon/>
       </main>
       <Footer />
