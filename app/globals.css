@@ -6,24 +6,24 @@
 :root {
   /* Chop Now food delivery theme colors */
   --background: #fdfae1;
-  --foreground: #222222;
+  --foreground: #1A1A1A;
 
   --card: #FDFBEA;
-  --card-foreground: #222222;
+  --card-foreground: #014421;
 
-  --popover: #FDFBEA;
-  --popover-foreground: #222222;
+  --popover: #1A1A1A;
+  --popover-foreground: #fff;
 
   --primary: #0F3D2E;
   --primary-foreground: #FDFBEA;
 
-  --secondary: #FF7A00;
+  --secondary: #DCAA03;
   --secondary-foreground: #FDFBEA;
 
   --muted: #FDFBEA;
   --muted-foreground: #222222;
 
-  --accent: #FF7A00;
+  --accent: #DCAA03;
   --accent-foreground: #FDFBEA;
 
   --destructive: #FF7A00;

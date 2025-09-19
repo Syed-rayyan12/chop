@@ -120,7 +120,7 @@ export function MenuManagementSection() {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-secondary">Menu Management</h2>
+        <h2 className="text-2xl font-bold text-primary">Menu Management</h2>
         <Dialog
           open={showAddMenuItem}
           onOpenChange={(open) => {
@@ -129,7 +129,7 @@ export function MenuManagementSection() {
           }}
         >
           <DialogTrigger asChild>
-            <Button className="bg-secondary hover:bg-[#0F3D2E] text-white">
+            <Button className="bg-secondary hover:bg-secondary/80 cursor-pointer text-white">
               <Plus className="h-4 w-4 mr-2" />
               Add New Item
             </Button>
@@ -143,7 +143,7 @@ export function MenuManagementSection() {
             </DialogHeader>
             <div className="space-y-4">
               <div>
-                <Label htmlFor="name">Name</Label>
+                <Label htmlFor="name" className="mb-2">Name</Label>
                 <Input
                   id="name"
                   placeholder="Enter item name"
@@ -151,13 +151,14 @@ export function MenuManagementSection() {
                   onChange={(e) =>
                     setNewMenuItem((prev) => ({ ...prev, name: e.target.value }))
                   }
-                  className=" "
+                  className=" border border-primary/50"
                 />
               </div>
               <div>
-                <Label htmlFor="description">Description</Label>
+                <Label htmlFor="description" className="mb-2">Description</Label>
                 <Textarea
                   id="description"
+                  className="border border-primary/50"
                   placeholder="Enter item description"
                   value={newMenuItem.description}
                   onChange={(e) =>
@@ -169,9 +170,10 @@ export function MenuManagementSection() {
                 />
               </div>
               <div>
-                <Label htmlFor="category">Category</Label>
+                <Label htmlFor="category" className="mb-2">Category</Label>
                 <Input
                   id="category"
+                  className="border border-primary/50"
                   placeholder="Enter category (e.g., Pizza, Burgers, Salads)"
                   value={newMenuItem.category}
                   onChange={(e) =>
@@ -183,9 +185,10 @@ export function MenuManagementSection() {
                 />
               </div>
               <div>
-                <Label htmlFor="price">Price</Label>
+                <Label htmlFor="price" className="mb-2">Price</Label>
                 <Input
                   id="price"
+                  className="border border-primary/50"
                   type="number"
                   placeholder="0.00"
                   value={newMenuItem.price}
@@ -198,14 +201,14 @@ export function MenuManagementSection() {
                 />
               </div>
               <div>
-                <Label htmlFor="image">Image</Label>
+                <Label htmlFor="image" className="mb-2">Image</Label>
                 <div className="space-y-2">
                   <Input
                     id="image"
                     type="file"
                     accept="image/*"
                     onChange={handleImageUpload}
-                    className="cursor-pointer"
+                    className="cursor-pointer border border-primary/50"
                   />
                   {imagePreview && (
                     <div className="flex justify-center">
@@ -229,7 +232,7 @@ export function MenuManagementSection() {
                 <Label htmlFor="available">Available</Label>
               </div>
               <Button
-                className="w-full bg-orange-600 hover:bg-orange-700"
+                className="w-full bg-secondary hover:bg-secondary cursor-pointer"
                 onClick={handleAddMenuItem}
               >
                 Add Item
@@ -242,12 +245,12 @@ export function MenuManagementSection() {
       {/* Search */}
       <div className="flex items-center space-x-4">
         <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 transform  -translate-y-1/2 text-secondary h-4 w-4" />
+          <Search className="absolute left-3 top-1/2 transform  -translate-y-1/2 text-primary h-4 w-4" />
           <Input
             placeholder="Search menu items..."
             value={menuSearchQuery}
             onChange={(e) => setMenuSearchQuery(e.target.value)}
-            className="pl-10 border-secondary/50 bg-white"
+            className="pl-10 border-primary/50 bg-white"
           />
         </div>
         {menuSearchQuery && (
@@ -263,28 +266,28 @@ export function MenuManagementSection() {
       </div>
 
       {/* Table */}
-      <Card className="border-orange-200 bg-white">
+      <Card className="border-primary/50 bg-white">
         <CardContent className="p-0">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="border-b border-secondary">
+              <thead className="border-b border-primary/50">
                 <tr>
-                  <th className="text-left p-4 font-medium text-secondary">
+                  <th className="text-left p-4 font-medium text-foreground">
                     Photo
                   </th>
-                  <th className="text-left p-4 font-medium text-secondary">
+                  <th className="text-left p-4 font-medium text-foreground">
                     Name
                   </th>
-                  <th className="text-left p-4 font-medium text-secondary">
+                  <th className="text-left p-4 font-medium text-foreground">
                     Category
                   </th>
-                  <th className="text-left p-4 font-medium text-secondary">
+                  <th className="text-left p-4 font-medium text-foreground">
                     Price
                   </th>
-                  <th className="text-left p-4 font-medium text-secondary">
+                  <th className="text-left p-4 font-medium text-foreground">
                     Available
                   </th>
-                  <th className="text-left p-4 font-medium text-secondary">
+                  <th className="text-left p-4 font-medium text-foreground">
                     Actions
                   </th>
                 </tr>
@@ -300,11 +303,11 @@ export function MenuManagementSection() {
                           className="w-12 h-12 rounded-lg object-cover"
                         />
                       </td>
-                      <td className="p-4 font-bold text-secondary">
+                      <td className="p-4 font-bold text-foreground">
                         {item.name}
                       </td>
-                      <td className="p-4 text-secondary">{item.category}</td>
-                      <td className="p-4 font-bold text-secondary">
+                      <td className="p-4 text-foreground">{item.category}</td>
+                      <td className="p-4 font-bold text-foreground">
                         ${item.price}
                       </td>
                       <td className="p-4">
@@ -319,14 +322,16 @@ export function MenuManagementSection() {
                         <div className="flex space-x-2">
                           <Button
                             size="sm"
-                            variant="outline"
+                            variant="mak"
                             onClick={() => handleEdit(item)}
+                           
                           >
                             <Edit className="h-4 w-4" />
                           </Button>
                           <Button
                             size="sm"
                             variant="destructive"
+                            className="bg-secondary hover:bg-secondary/80"
                             onClick={() => {
                               setSelectedItem(item)     // store the item to delete
                               setIsDeleteOpen(true)  // open the delete modal

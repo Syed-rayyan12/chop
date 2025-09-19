@@ -41,8 +41,8 @@ export function Sidebar({ collapsed, setCollapsed }: { collapsed: boolean, setCo
             className={cn(
               "flex items-center px-2 py-2 text-sm font-medium rounded-lg transition-colors",
               isActive
-                ? "bg-white text-secondary border border-secondary/65"
-                : "text-secondary "
+                ? "bg-white text-primary border border-primary/65"
+                : "text-primary "
             )}
           >
             <item.icon className="h-5 w-5 flex-shrink-0" />

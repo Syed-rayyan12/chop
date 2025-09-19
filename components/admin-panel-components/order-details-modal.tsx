@@ -58,7 +58,7 @@ export function OrderDetailsModal({ order, isOpen, onClose }: OrderDetailsModalP
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="w-[50%] max-lg:w-[80%] max-sm:w-[100%] mx-auto max-h-[90vh] overflow-y-auto">
+      <DialogContent className="w-[80%] max-lg:w-[80%] max-sm:w-[100%] mx-auto max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl text-secondary">Order Details - {order.id}</DialogTitle>
           <DialogDescription className="text-amber-600">Complete information about this order</DialogDescription>

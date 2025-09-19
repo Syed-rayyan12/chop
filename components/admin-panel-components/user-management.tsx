@@ -180,8 +180,8 @@ export function UserManagement() {
       {/* Header */}
       <div className="flex max-sm:flex-col max-sm:gap-4 max-sm:items-start items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-secondary">User Management</h1>
-          <p className="text-secondary/70">Manage customer accounts and user activity</p>
+          <h1 className="text-3xl font-bold text-primary">User Management</h1>
+          <p className="text-foreground/80">Manage customer accounts and user activity</p>
         </div>
         <div className="flex items-center space-x-3">
           <Button variant="outline" className="border-secondary/50 bg-white text-secondary hover:bg-secondary cursor-pointer">
@@ -197,46 +197,46 @@ export function UserManagement() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-        <Card className="border-secondary/80 bg-white shadow-none">
+        <Card className="border-primary/50 bg-white shadow-none">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">{userStats.total}</div>
+            <div className="text-2xl font-bold text-primary">{userStats.total}</div>
             <div className="text-sm text-foreground">Total Users</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/80 bg-white shadow-none">
+        <Card className="border-primary/50 bg-white shadow-none">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold  text-secondary">{userStats.active}</div>
+            <div className="text-2xl font-bold  text-primary">{userStats.active}</div>
             <div className="text-sm text-foreground">Active</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/80 bg-white shadow-none">
+        <Card className="border-primary/50 bg-white shadow-none">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold  text-secondary">{userStats.inactive}</div>
+            <div className="text-2xl font-bold  text-primary">{userStats.inactive}</div>
             <div className="text-sm text-foreground">Inactive</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/80 bg-white shadow-none">
+        <Card className="border-primary/50 bg-white shadow-none">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">{userStats.banned}</div>
+            <div className="text-2xl font-bold text-primary">{userStats.banned}</div>
             <div className="text-sm text-foreground">Banned</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/80 bg-white shadow-none">
+        <Card className="border-primary/50 bg-white shadow-none">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">£{userStats.totalRevenue.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-primary">£{userStats.totalRevenue.toLocaleString()}</div>
             <div className="text-sm text-foreground">Total Revenue</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/80 bg-white shadow-none">
+        <Card className="border-primary/50 bg-white shadow-none">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">£{userStats.avgOrderValue.toFixed(2)}</div>
+            <div className="text-2xl font-bold text-primary">£{userStats.avgOrderValue.toFixed(2)}</div>
             <div className="text-sm text-foreground">Avg Order Value</div>
           </CardContent>
         </Card>
       </div>
 
       {/* Filters and Search */}
-      <Card className="border-secondary/80 bg-white shadow-none">
+      <Card className="border-primary/50 bg-white shadow-none">
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
             <div className="flex max-sm:flex-col max-sm:gap-3 gap-3 items-center">
@@ -246,19 +246,19 @@ export function UserManagement() {
                   placeholder="Search users by name, email, phone, or ID..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 w-80 max-sm:w-full border-secondary/50 bg-white cursor-pointer"
+                  className="pl-10 w-80 max-sm:w-full border-primary/50 bg-white cursor-pointer"
                 />
               </div>
               <Select value={statusFilter} onValueChange={setStatusFilter}>
-                <SelectTrigger className="w-40 max-sm:w-full border-secondary/50 cursor-pointer">
+                <SelectTrigger className="w-40 max-sm:w-full border-primary/50 cursor-pointer">
                   <Filter className="w-4 h-4 mr-2" />
                   <SelectValue placeholder="Filter by status" />
                 </SelectTrigger>
-                <SelectContent className="border-secondary/50 bg-white">
-                  <SelectItem value="all">All Status</SelectItem>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="inactive">Inactive</SelectItem>
-                  <SelectItem value="banned">Banned</SelectItem>
+                <SelectContent className="border-primary/50 bg-white">
+                  <SelectItem value="all" className="text-foreground">All Status</SelectItem>
+                  <SelectItem value="active" className="text-foreground">Active</SelectItem>
+                  <SelectItem value="inactive" className="text-foreground">Inactive</SelectItem>
+                  <SelectItem value="banned" className="text-foreground">Banned</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -266,28 +266,28 @@ export function UserManagement() {
         </CardHeader>
         <CardContent>
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="lg:grid hidden w-full grid-cols-4 border-secondary bg-secondary rounded-xl">
+            <TabsList className="lg:grid hidden w-full grid-cols-4 border-secondary bg-primary rounded-xl">
               <TabsTrigger
                 value="all"
-                className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
+                className="data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
               >
                 All Users
               </TabsTrigger>
               <TabsTrigger
                 value="active"
-                className="data-[state=active]:background data-[state=active]:text-foreground rounded-lg text-background cursor-pointer"
+                className="data-[state=active]:white data-[state=active]:text-foreground rounded-lg text-background cursor-pointer"
               >
                 Active
               </TabsTrigger>
               <TabsTrigger
                 value="inactive"
-                className="data-[state=active]:background data-[state=active]:text-foreground rounded-lg text-background cursor-pointer"
+                className="data-[state=active]:white data-[state=active]:text-foreground rounded-lg text-background cursor-pointer"
               >
                 Inactive
               </TabsTrigger>
               <TabsTrigger
                 value="banned"
-                className="data-[state=active]:background data-[state=active]:text-foreground rounded-lg text-background cursor-pointer"
+                className="data-[state=active]:white data-[state=active]:text-foreground rounded-lg text-background cursor-pointer"
               >
                 Banned
               </TabsTrigger>
@@ -297,14 +297,14 @@ export function UserManagement() {
               <Table>
                 <TableHeader>
                   <TableRow className="border-secondary/65">
-                    <TableHead className="text-secondary">User</TableHead>
-                    <TableHead className="text-secondary">Contact</TableHead>
-                    <TableHead className="text-secondary">Orders</TableHead>
-                    <TableHead className="text-secondary">Total Spent</TableHead>
-                    <TableHead className="text-secondary">Avg Order</TableHead>
-                    <TableHead className="text-secondary">Last Order</TableHead>
-                    <TableHead className="text-secondary">Status</TableHead>
-                    <TableHead className="text-secondary">Actions</TableHead>
+                    <TableHead className="text-foreground">User</TableHead>
+                    <TableHead className="text-foreground">Contact</TableHead>
+                    <TableHead className="text-foreground">Orders</TableHead>
+                    <TableHead className="text-foreground">Total Spent</TableHead>
+                    <TableHead className="text-foreground">Avg Order</TableHead>
+                    <TableHead className="text-foreground">Last Order</TableHead>
+                    <TableHead className="text-foreground">Status</TableHead>
+                    <TableHead className="text-foreground">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -314,7 +314,7 @@ export function UserManagement() {
                         <div className="flex items-center space-x-3">
                           <Avatar className="h-10 w-10">
                             <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
-                            <AvatarFallback className="bg-orange-100 text-orange-800">
+                            <AvatarFallback className="bg-primary text-white">
                               {user.name
                                 .split(" ")
                                 .map((n) => n[0])
@@ -322,27 +322,27 @@ export function UserManagement() {
                             </AvatarFallback>
                           </Avatar>
                           <div>
-                            <div className="font-bold text-secondary">{user.name}</div>
-                            <div className="text-sm text-secondary">{user.id}</div>
+                            <div className="font-bold text-foreground">{user.name}</div>
+                            <div className="text-sm text-foreground">{user.id}</div>
                           </div>
                         </div>
                       </TableCell>
                       <TableCell>
                         <div className="space-y-1">
-                          <div className="flex items-center text-sm text-secondary/80">
+                          <div className="flex items-center text-sm text-primary/80">
                             <Mail className="w-3 h-3 mr-1" />
                             {user.email}
                           </div>
-                          <div className="flex items-center text-sm text-secondary/70">
+                          <div className="flex items-center text-sm text-primary/80">
                             <Phone className="w-3 h-3 mr-1" />
                             {user.phone}
                           </div>
                         </div>
                       </TableCell>
-                      <TableCell className="font-medium text-secondary">{user.totalOrders}</TableCell>
-                      <TableCell className="font-bold text-secondary">£{user.totalSpent.toFixed(2)}</TableCell>
-                      <TableCell className="text-secondary">£{user.averageOrder.toFixed(2)}</TableCell>
-                      <TableCell className="text-secondary">{user.lastOrder}</TableCell>
+                      <TableCell className="font-medium text-foreground">{user.totalOrders}</TableCell>
+                      <TableCell className="font-bold text-foreground">£{user.totalSpent.toFixed(2)}</TableCell>
+                      <TableCell className="text-foreground">£{user.averageOrder.toFixed(2)}</TableCell>
+                      <TableCell className="text-foreground">{user.lastOrder}</TableCell>
                       <TableCell>{getStatusBadge(user.status)}</TableCell>
                       <TableCell>
                         <div className="flex items-center space-x-2">
@@ -350,18 +350,18 @@ export function UserManagement() {
                             variant="ghost"
                             size="sm"
                             onClick={() => setSelectedUser(user)}
-                            className="text-orange-600 hover:text-orange-800 hover:bg-orange-100"
+                            className="hover:bg-primary "
                           >
-                            <Eye className="w-4 h-4" />
+                            <Eye className="w-4 h-4  hover:text-white" />
                           </Button>
                           <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                className="text-orange-600 hover:text-orange-800 hover:bg-orange-100"
+                                className="hover:bg-primary "
                               >
-                                <MoreHorizontal className="w-4 h-4" />
+                                <MoreHorizontal className="w-4 h-4  hover:text-white" />
                               </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>

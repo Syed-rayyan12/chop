@@ -128,12 +128,12 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-h-[90vh] bg-background overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-2xl text-secondary flex items-center">
+          <DialogTitle className="text-2xl  text-primary flex items-center">
             <Avatar className="h-8 w-8 mr-3">
               <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
-              <AvatarFallback className="bg-orange-100 text-orange-800">
+              <AvatarFallback className="bg-primary text-white ">
                 {user.name
                   .split(" ")
                   .map((n) => n[0])
@@ -142,34 +142,34 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
             </Avatar>
             {user.name}
           </DialogTitle>
-          <DialogDescription className="text-amber-600">
+          <DialogDescription className="text-foreground/80">
             Complete user profile and activity information
           </DialogDescription>
         </DialogHeader>
 
         <Tabs defaultValue="profile" className="mt-6">
-          <TabsList className="grid w-full grid-cols-4 bg-amber-50">
+          <TabsList className="grid w-full grid-cols-4 bg-primary ">
             <TabsTrigger
               value="profile"
-              className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-800"
+              className="data-[state=active]:bg-white data-[state=active]:text-foreground text-white rounded-lg"
             >
               Profile
             </TabsTrigger>
             <TabsTrigger
               value="orders"
-              className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-800"
+              className="data-[state=active]:bg-white data-[state=active]:text-foreground text-white rounded-lg"
             >
               Order History
             </TabsTrigger>
             <TabsTrigger
               value="analytics"
-              className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-800"
+              className="data-[state=active]:bg-white data-[state=active]:text-foreground text-white rounded-lg"
             >
               Analytics
             </TabsTrigger>
             <TabsTrigger
               value="settings"
-              className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-800"
+              className="data-[state=active]:bg-white data-[state=active]:text-foreground text-white rounded-lg"
             >
               Settings
             </TabsTrigger>
@@ -178,12 +178,12 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
           <TabsContent value="profile" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Personal Information */}
-              <Card className="border-secondary/80">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-orange-800">
+                  <CardTitle className="flex items-center text-primary">
                     <Avatar className="w-5 h-5 mr-2">
                       <AvatarImage src="/user-icon.svg" alt="User" />
-                      <AvatarFallback className="bg-orange-100 text-orange-800">UI</AvatarFallback>
+                      <AvatarFallback className="bg-primary text-white">UI</AvatarFallback>
                     </Avatar>
                     Personal Information
                   </CardTitle>
@@ -192,7 +192,7 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
                   <div className="flex items-center space-x-4">
                     <Avatar className="h-16 w-16">
                       <AvatarImage src={user.avatar || "/placeholder.svg"} alt={user.name} />
-                      <AvatarFallback className="bg-orange-100 text-orange-800 text-lg">
+                      <AvatarFallback className="bg-primary text-white text-lg">
                         {user.name
                           .split(" ")
                           .map((n) => n[0])
@@ -200,73 +200,75 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
                       </AvatarFallback>
                     </Avatar>
                     <div>
-                      <h3 className="text-lg font-bold text-orange-800">{user.name}</h3>
-                      <p className="text-sm text-secondary">{user.id}</p>
+                      <h3 className="text-lg font-bold text-primary">{user.name}</h3>
+                      <p className="text-sm text-foreground/80">{user.id}</p>
                     </div>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
-                      <Mail className="w-5 h-5 text-orange-600" />
-                      <span className="text-sm text-amber-700">{user.email}</span>
+                      <Mail className="w-5 h-5 text-primary" />
+                      <span className="text-sm text-foreground/80">{user.email}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Phone className="w-5 h-5 text-orange-600" />
-                      <span className="text-sm text-amber-700">{user.phone}</span>
+                      <Phone className="w-5 h-5 text-primary" />
+                      <span className="text-sm text-foreground/80">{user.phone}</span>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <MapPin className="w-5 h-5 text-orange-600 mt-0.5" />
-                      <span className="text-sm text-amber-700">{user.address}</span>
+                      <MapPin className="w-5 h-5 text-primary mt-0.5" />
+                      <span className="text-sm text-foreground/80">{user.address}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Calendar className="w-5 h-5 text-orange-600" />
-                      <span className="text-sm text-amber-700">Joined {user.joinDate}</span>
+                      <Calendar className="w-5 h-5 text-primary" />
+                      <span className="text-sm text-foreground/80">Joined {user.joinDate}</span>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               {/* Account Statistics */}
-              <Card className="border-secondary/80">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-orange-800">
-                    <ShoppingBag className="w-5 h-5 mr-2" />
+                  <CardTitle className="flex gap-2 items-center text-primary">
+                    <div className="bg-primary w-10 h-10 flex justify-center items-center rounded-full">
+                    <ShoppingBag className="w-5 h-5  text-white" />
+                    </div>
                     Account Statistics
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-orange-800">{user.totalOrders}</div>
-                      <div className="text-sm text-amber-600">Total Orders</div>
+                    <div className="text-center p-4 border border-primary/50 rounded-lg">
+                      <div className="text-2xl font-bold text-primary">{user.totalOrders}</div>
+                      <div className="text-sm text-foreground">Total Orders</div>
                     </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-secondary">£{user.totalSpent.toFixed(2)}</div>
-                      <div className="text-sm text-amber-600">Total Spent</div>
+                    <div className="text-center p-4 border border-primary/50 rounded-lg">
+                      <div className="text-2xl font-bold text-primary">£{user.totalSpent.toFixed(2)}</div>
+                      <div className="text-sm text-foreground">Total Spent</div>
                     </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-secondary">£{user.averageOrder.toFixed(2)}</div>
-                      <div className="text-sm text-amber-600">Avg Order</div>
+                    <div className="text-center p-4 border border-primary/50 rounded-lg">
+                      <div className="text-2xl font-bold text-primary">£{user.averageOrder.toFixed(2)}</div>
+                      <div className="text-sm text-foreground">Avg Order</div>
                     </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-orange-800">4.8</div>
-                      <div className="text-sm text-amber-600">Avg Rating</div>
+                    <div className="text-center p-4 border border-primary/50 rounded-lg">
+                      <div className="text-2xl font-bold text-primary">4.8</div>
+                      <div className="text-sm text-foreground">Avg Rating</div>
                     </div>
                   </div>
 
-                  <Separator className="bg-orange-200" />
+                  <Separator className="bg-primary/50" />
 
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-amber-700">Last Order:</span>
-                      <span className="font-medium text-orange-800">{user.lastOrder}</span>
+                      <span className="text-foreground">Last Order:</span>
+                      <span className="font-medium text-primary">{user.lastOrder}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-amber-700">Favorite Restaurant:</span>
-                      <span className="font-medium text-orange-800">{user.favoriteRestaurant}</span>
+                      <span className="text-foreground">Favorite Restaurant:</span>
+                      <span className="font-medium text-primary">{user.favoriteRestaurant}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-amber-700">Account Status:</span>
+                      <span className="text-foreground">Account Status:</span>
                       <Badge
                         className={
                           user.status === "active"
@@ -286,27 +288,27 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
           </TabsContent>
 
           <TabsContent value="orders" className="space-y-6">
-            <Card className="border-secondary/80">
+            <Card className="border border-primary/50 bg-white">
               <CardHeader>
-                <CardTitle className="text-orange-800">Recent Orders</CardTitle>
+                <CardTitle className="text-primary">Recent Orders</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {recentOrders.map((order) => (
-                    <div key={order.id} className="flex items-center justify-between p-4 bg-amber-50 rounded-lg">
+                    <div key={order.id} className="flex items-center justify-between p-4 border border-primary/50 rounded-lg">
                       <div className="flex items-center space-x-4">
-                        <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
-                          <Store className="w-5 h-5 text-orange-600" />
+                        <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center">
+                          <Store className="w-5 h-5 text-white" />
                         </div>
                         <div>
-                          <p className="font-medium text-secondary">{order.id}</p>
-                          <p className="text-sm text-amber-600">{order.restaurant}</p>
-                          <p className="text-xs text-amber-500">{order.items.join(", ")}</p>
+                          <p className="font-medium text-primary">{order.id}</p>
+                          <p className="text-sm text-primary/80">{order.restaurant}</p>
+                          <p className="text-xs text-secondary">{order.items.join(", ")}</p>
                         </div>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold text-secondary">£{order.amount.toFixed(2)}</p>
-                        <p className="text-xs text-amber-600">
+                        <p className="font-bold text-foreground">£{order.amount.toFixed(2)}</p>
+                        <p className="text-xs text-secondary">
                           {order.date} at {order.time}
                         </p>
                         {getOrderStatusBadge(order.status)}
@@ -320,36 +322,36 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
 
           <TabsContent value="analytics" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="border-secondary/80">
+              <Card className="border border-primary/50 bg-white">
                 <CardContent className="p-6">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 justify-between">
                     <div>
-                      <p className="text-sm text-amber-600">This Month Orders</p>
-                      <p className="text-2xl font-bold text-orange-800">12</p>
+                      <p className="text-sm text-foreground">This Month Orders</p>
+                      <p className="text-2xl font-bold text-primary">12</p>
                     </div>
-                    <ShoppingBag className="w-8 h-8 text-orange-500" />
+                    <ShoppingBag className="w-8 h-8 text-primary" />
                   </div>
                 </CardContent>
               </Card>
-              <Card className="border-secondary/80">
+              <Card className="border border-primary/50 bg-white">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-amber-600">This Month Spent</p>
-                      <p className="text-2xl font-bold text-secondary">£324</p>
+                      <p className="text-sm text-foreground">This Month Spent</p>
+                      <p className="text-2xl font-bold text-primary">£324</p>
                     </div>
-                    <DollarSign className="w-8 h-8 text-orange-500" />
+                    <DollarSign className="w-8 h-8 text-primary" />
                   </div>
                 </CardContent>
               </Card>
-              <Card className="border-secondary/80">
+              <Card className="border border-primary/50 bg-white">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-amber-600">Customer Rating</p>
-                      <p className="text-2xl font-bold text-orange-800">4.8</p>
+                      <p className="text-sm text-primary">Customer Rating</p>
+                      <p className="text-2xl font-bold text-primary">4.8</p>
                     </div>
-                    <Star className="w-8 h-8 text-orange-500" />
+                    <Star className="w-8 h-8 text-primary" />
                   </div>
                 </CardContent>
               </Card>
@@ -357,50 +359,50 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
           </TabsContent>
 
           <TabsContent value="settings" className="space-y-6">
-            <Card className="border-secondary/80">
+            <Card className=" border border-primary/50 bg-white">
               <CardHeader>
-                <CardTitle className="flex items-center text-orange-800">
+                <CardTitle className="flex items-center text-primary">
                   {getStatusIcon(currentStatus)}
-                  <span className="ml-2">Account Status</span>
+                  <span className="ml-2 text-primary">Account Status</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center space-x-4">
                   <Select value={currentStatus} onValueChange={handleStatusUpdate}>
-                    <SelectTrigger className="w-48 border-orange-200">
+                    <SelectTrigger className="w-48 border border-primary/50">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="active">Active</SelectItem>
-                      <SelectItem value="inactive">Inactive</SelectItem>
-                      <SelectItem value="banned">Banned</SelectItem>
+                    <SelectContent className="bg-white border border-primary/50">
+                      <SelectItem value="active" className="text-foreground">Active</SelectItem>
+                      <SelectItem value="inactive" className="text-foreground">Inactive</SelectItem>
+                      <SelectItem value="banned" className="text-foreground">Banned</SelectItem>
                     </SelectContent>
                   </Select>
-                  <Button className="bg-orange-500 hover:bg-orange-600 text-white">Update Status</Button>
+                  <Button className="bg-secondary hover:bg-secondary/50 cursor-pointer text-white">Update Status</Button>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="border-secondary/80">
+            <Card className="border border-primary/50 bg-white">
               <CardHeader>
-                <CardTitle className="text-orange-800">Account Actions</CardTitle>
+                <CardTitle className="text-primary">Account Actions</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <Button
                   variant="outline"
-                  className="w-full border-orange-200 text-orange-700 hover:bg-orange-50 bg-transparent"
+                  className="w-full border border-primary/50 text-foreground hover:bg-primary hover:text-white bg-transparent"
                 >
                   Send Password Reset Email
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-orange-200 text-orange-700 hover:bg-orange-50 bg-transparent"
+                  className="w-full border border-primary/50 text-foreground hover:bg-primary hover:text-white bg-transparent"
                 >
                   Send Welcome Email
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-orange-200 text-orange-700 hover:bg-orange-50 bg-transparent"
+                  className="w-full border border-primary/50 text-foreground hover:bg-primary hover:text-white bg-transparent"
                 >
                   Generate Account Report
                 </Button>
@@ -414,12 +416,12 @@ export function UserDetailsModal({ user, isOpen, onClose }: UserDetailsModalProp
           <Button
             variant="outline"
             onClick={onClose}
-            className="border-orange-200 text-orange-700 hover:bg-orange-50 bg-transparent"
+            className="border border-secondary hover:bg-secondary bg-transparent"
           >
             Close
           </Button>
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white">Edit User</Button>
-          <Button variant="outline" className="border-orange-200 text-orange-700 hover:bg-orange-50 bg-transparent">
+          <Button className="bg-secondary hover:bg-secondary/80 text-white">Edit User</Button>
+          <Button variant="outline" className="bg-secondary hover:bg-secondary/80 text-white">
             Send Message
           </Button>
         </div>

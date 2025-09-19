@@ -43,7 +43,7 @@ const revenueData = [
 ]
 
 const categoryData = [
-  { name: "African Cuisine", value: 45, color: "#FF7A00" },
+  { name: "African Cuisine", value: 45, color: "#014421" },
   { name: "Indian Cuisine", value: 25, color: "#0F3D2E" },
   { name: "Fast Food", value: 15, color: "#222222" },
   { name: "Desserts", value: 10, color: "#92400e" },
@@ -79,6 +79,46 @@ const hourlyOrders = [
   { hour: "11PM", orders: 25 },
 ]
 
+
+const stats = [
+  {
+    title: "Total Revenue",
+    value: "£89,420",
+    change: "+12.5% from last month",
+    icon: DollarSign,
+    iconColor: "text-amber-600",
+    changeColor: "text-green-600",
+    trend: TrendingUp,
+  },
+  {
+    title: "Total Orders",
+    value: "2,547",
+    change: "+8.2% from last month",
+    icon: ShoppingCart,
+    iconColor: "text-amber-600",
+    changeColor: "text-green-600",
+    trend: TrendingUp,
+  },
+  {
+    title: "Active Users",
+    value: "1,750",
+    change: "+15.3% from last month",
+    icon: Users,
+    iconColor: "text-amber-600",
+    changeColor: "text-green-600",
+    trend: TrendingUp,
+  },
+  {
+    title: "Avg. Order Value",
+    value: "£35.12",
+    change: "-2.1% from last month",
+    icon: DollarSign,
+    iconColor: "text-amber-600",
+    changeColor: "text-red-600",
+    trend: TrendingDown,
+  },
+];
+
 export function AnalyticsDashboard() {
   const [dateRange, setDateRange] = useState("30d")
 
@@ -89,23 +129,23 @@ export function AnalyticsDashboard() {
         <div className="flex max-sm:flex-col max-sm:items-start max-sm:gap-3 gap-3 items-center">
           <CalendarDateRangePicker className="cursor-pointer " />
           <Select value={dateRange} onValueChange={setDateRange}>
-            <SelectTrigger className="w-[180px] max-sm:w-full border-secondary/50 bg-white cursor-pointer">
+            <SelectTrigger className="w-[180px] max-sm:w-full border border-primary/50 bg-white cursor-pointer">
               <SelectValue className="" placeholder="Select period" />
             </SelectTrigger>
-            <SelectContent className="border-secondary/50 bg-white">
-              <SelectItem value="7d">Last 7 days</SelectItem>
-              <SelectItem value="30d">Last 30 days</SelectItem>
-              <SelectItem value="90d">Last 90 days</SelectItem>
-              <SelectItem value="1y">Last year</SelectItem>
+            <SelectContent className="border border-primary/50 bg-white">
+              <SelectItem value="7d" className="text-foreground">Last 7 days</SelectItem>
+              <SelectItem value="30d" className="text-foreground">Last 30 days</SelectItem>
+              <SelectItem value="90d" className="text-foreground">Last 90 days</SelectItem>
+              <SelectItem value="1y" className="text-foreground">Last year</SelectItem>
             </SelectContent>
           </Select>
         </div>
         <div className="flex  items-center space-x-2">
-          <Button className="border border-secondary/50" variant="outline" size="sm">
+          <Button className="bg-secondary hover:bg-secondary/80 cursor-pointer "  size="sm">
             <Filter className="mr-2 h-4 w-4 " />
             Filter
           </Button>
-          <Button className="border border-secondary/50 cursour-pointer" variant="outline" size="sm">
+          <Button className="border border-secondary/50 cursour-pointer " variant="mak"  size="sm">
             <Download className="mr-2 h-4 w-4 " />
             Export
           </Button>
@@ -114,87 +154,57 @@ export function AnalyticsDashboard() {
 
       {/* Key Metrics */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <Card className="border border-secondary/50  bg-white">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-secondary">Total Revenue</CardTitle>
-            <DollarSign className="h-4 w-4 text-amber-600" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-secondary">£89,420</div>
-            <div className="flex items-center text-xs text-green-600">
-              <TrendingUp className="mr-1 h-3 w-3" />
-              +12.5% from last month
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border border-secondary/50  bg-white">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-secondary">Total Orders</CardTitle>
-            <ShoppingCart className="h-4 w-4 text-amber-600" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-secondary">2,547</div>
-            <div className="flex items-center text-xs text-green-600">
-              <TrendingUp className="mr-1 h-3 w-3" />
-              +8.2% from last month
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border border-secondary/50 bg-white">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-secondary">Active Users</CardTitle>
-            <Users className="h-4 w-4 text-amber-600" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-secondary">1,750</div>
-            <div className="flex items-center text-xs text-green-600">
-              <TrendingUp className="mr-1 h-3 w-3" />
-              +15.3% from last month
-            </div>
-          </CardContent>
-        </Card>
-        <Card className="border border-secondary/50 bg-white">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-secondary">Avg. Order Value</CardTitle>
-            <DollarSign className="h-4 w-4 text-amber-600" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-secondary">£35.12</div>
-            <div className="flex items-center text-xs text-green-600">
-              <TrendingDown className="mr-1 h-3 w-3" />
-              -2.1% from last month
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+      {stats.map((stat, index) => {
+        const Icon = stat.icon;
+        const Trend = stat.trend;
+
+        return (
+          <Card key={index} className="border border-primary/50 bg-white ">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium text-foreground">
+                {stat.title}
+              </CardTitle>
+              <Icon className={`h-4 w-4 text-secondary ${stat.iconColor}`} />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-primary">{stat.value}</div>
+              <div className={`flex items-center text-xs ${stat.changeColor}`}>
+                <Trend className="mr-1 h-3 w-3" />
+                {stat.change}
+              </div>
+            </CardContent>
+          </Card>
+        );
+      })}
+    </div>
 
       {/* Charts and Analytics */}
       <Tabs defaultValue="overview" className="space-y-4">
-        <TabsList className="grid w-full max-sm:h-full max-sm:flex max-sm:flex-col grid-cols-5 bg-secondary rounded-xl">
-          <TabsTrigger value="overview" className="w-full data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Overview</TabsTrigger>
-          <TabsTrigger value="revenue" className="w-full data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Revenue</TabsTrigger>
-          <TabsTrigger value="orders" className="w-full data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Orders</TabsTrigger>
-          <TabsTrigger value="restaurants" className="w-full data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Restaurants</TabsTrigger>
-          <TabsTrigger value="users" className="w-full data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Users</TabsTrigger>
+        <TabsList className="grid w-full max-sm:h-full max-sm:flex max-sm:flex-col grid-cols-5 bg-primary rounded-xl">
+          <TabsTrigger value="overview" className="w-full data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Overview</TabsTrigger>
+          <TabsTrigger value="revenue" className="w-full data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Revenue</TabsTrigger>
+          <TabsTrigger value="orders" className="w-full data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Orders</TabsTrigger>
+          <TabsTrigger value="restaurants" className="w-full data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Restaurants</TabsTrigger>
+          <TabsTrigger value="users" className="w-full data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Users</TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-4">
           <div className="flex justify-between gap-4 max-sm:flex-col">
-            <Card className="w-full bg-white border border-secondary/50">
+            <Card className="w-full bg-white border border-primary/50">
               <CardHeader>
-                <CardTitle className="text-secondary">Revenue Overview</CardTitle>
-                <CardDescription className="text-foreground">Monthly revenue and order trends</CardDescription>
+                <CardTitle className="text-primary">Revenue Overview</CardTitle>
+                <CardDescription className="text-foreground/80">Monthly revenue and order trends</CardDescription>
               </CardHeader>
               <CardContent className="pl-2 max-sm:pl-0 overflow-hidden">
                 <ChartContainer
                   config={{
                     revenue: {
                       label: "Revenue",
-                      color: "#FF7A00",
+                      color: "#",
                     },
                     orders: {
                       label: "Orders",
-                      color: "#d97706",
+                      color: "#",
                     },
                   }}
                   className="h-[300px] w-[100%]"
@@ -209,8 +219,8 @@ export function AnalyticsDashboard() {
                         type="monotone"
                         dataKey="revenue"
                         stackId="1"
-                        stroke="#FF7A00"
-                        fill="#FF7A00"
+                        stroke="#0F3D2E"
+                        fill="#0F3D2E"
                        
                       />
                     </AreaChart>
@@ -218,10 +228,10 @@ export function AnalyticsDashboard() {
                 </ChartContainer>
               </CardContent>
             </Card>
-            <Card className="w-full bg-white border border-secondary/50">
+            <Card className="w-full bg-white border border-primary/50">
               <CardHeader className="text-center">
-                <CardTitle className="text-secondary">Order Categories</CardTitle>
-                <CardDescription className="text-foreground">Distribution by cuisine type</CardDescription>
+                <CardTitle className="text-primary">Order Categories</CardTitle>
+                <CardDescription className="text-foreground/80">Distribution by cuisine type</CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col items-center justify-center">
                 <ChartContainer
@@ -265,17 +275,17 @@ export function AnalyticsDashboard() {
           </div>
 
           <div className="flex gap-4 justify-between max-sm:flex-col">
-            <Card className=" w-full bg-white border border-secondary/50">
+            <Card className=" w-full bg-white border border-primary/50">
               <CardHeader>
-                <CardTitle className="text-secondary">Hourly Order Pattern</CardTitle>
-                <CardDescription className="text-foreground">Orders throughout the day</CardDescription>
+                <CardTitle className="text-primary">Hourly Order Pattern</CardTitle>
+                <CardDescription className="text-foreground/80">Orders throughout the day</CardDescription>
               </CardHeader>
               <CardContent>
                 <ChartContainer
                   config={{
                     orders: {
                       label: "Orders",
-                      color: "#FF7A00",
+                      color: "#014421",
                     },
                   }}
                   className="h-[200px] w-[100%]"
@@ -286,17 +296,17 @@ export function AnalyticsDashboard() {
                       <XAxis dataKey="hour" />
                       <YAxis />
                       <ChartTooltip content={<ChartTooltipContent />} />
-                      <Bar dataKey="orders" fill="#FF7A00" />
+                      <Bar dataKey="orders" fill="#014421" />
                     </BarChart>
                   </ResponsiveContainer>
                 </ChartContainer>
               </CardContent>
             </Card>
 
-            <Card className="w-full border-secondary/50 bg-white">
+            <Card className="w-full border-primary/50 bg-white">
               <CardHeader>
-                <CardTitle className="text-secondary">Recent Activity</CardTitle>
-                <CardDescription className="text-foreground">Latest orders and transactions</CardDescription>
+                <CardTitle className="text-primary">Recent Activity</CardTitle>
+                <CardDescription className="text-foreground/80">Latest orders and transactions</CardDescription>
               </CardHeader>
               <CardContent>
                 <RecentSales />
@@ -306,17 +316,17 @@ export function AnalyticsDashboard() {
         </TabsContent>
 
         <TabsContent value="revenue" className="space-y-4">
-          <Card className="border-secondary/50 bg-white">
+          <Card className="border-primary/50 bg-white">
             <CardHeader>
-              <CardTitle className="text-secondary">Revenue Analytics</CardTitle>
-              <CardDescription className="text-foreground">Detailed revenue breakdown and trends</CardDescription>
+              <CardTitle className="text-primary">Revenue Analytics</CardTitle>
+              <CardDescription className="text-foreground/80">Detailed revenue breakdown and trends</CardDescription>
             </CardHeader>
             <CardContent>
               <ChartContainer
                 config={{
                   revenue: {
                     label: "Revenue",
-                    color: "#f59e0b",
+                    color: "#0F3D2E",
                   },
                 }}
                 className="h-[400px] w-[100%]"
@@ -330,9 +340,9 @@ export function AnalyticsDashboard() {
                     <Line
                       type="monotone"
                       dataKey="revenue"
-                      stroke="#FF7A00"
+                      stroke="#0F3D2E"
                       strokeWidth={3}
-                      dot={{ fill: "#f59e0b", strokeWidth: 2, r: 4 }}
+                      dot={{ fill: "#0F3D2E", strokeWidth: 2, r: 4 }}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -342,17 +352,17 @@ export function AnalyticsDashboard() {
         </TabsContent>
 
         <TabsContent value="orders" className="space-y-4">
-          <Card className="border-secondary/50 bg-white">
+          <Card className="border-primary/50 bg-white">
             <CardHeader>
-              <CardTitle className="text-secondary">Order Analytics</CardTitle>
-              <CardDescription className="text-foreground">Order volume and patterns</CardDescription>
+              <CardTitle className="text-primary">Order Analytics</CardTitle>
+              <CardDescription className="text-foreground/80">Order volume and patterns</CardDescription>
             </CardHeader>
             <CardContent>
               <ChartContainer
                 config={{
                   orders: {
                     label: "Orders",
-                    color: "#FF7A00",
+                    color: "#0F3D2E",
                   },
                 }}
                 className="h-[400px] w-[100%]"
@@ -363,7 +373,7 @@ export function AnalyticsDashboard() {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <ChartTooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="orders" fill="#FF7A00" />
+                    <Bar dataKey="orders" fill="#0F3D2E" />
                   </BarChart>
                 </ResponsiveContainer>
               </ChartContainer>
@@ -372,33 +382,33 @@ export function AnalyticsDashboard() {
         </TabsContent>
 
         <TabsContent value="restaurants" className="space-y-4">
-          <Card className="border-secondary/50 bg-white">
+          <Card className="border-primary/50 bg-white">
             <CardHeader>
-              <CardTitle className="text-secondary">Restaurant Performance</CardTitle>
-              <CardDescription className="text-foreground">Top performing restaurants</CardDescription>
+              <CardTitle className="text-primary">Restaurant Performance</CardTitle>
+              <CardDescription className="text-foreground/80">Top performing restaurants</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {restaurantPerformance.map((restaurant, index) => (
                   <div
                     key={restaurant.name}
-                    className="flex items-center justify-between p-4 border border-secondary/50 rounded-lg"
+                    className="flex items-center justify-between p-4 border border-primary/50 rounded-lg"
                   >
                     <div className="flex items-center space-x-4">
-                      <div className="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center">
-                        <span className="text-sm font-semibold text-foreground">#{index + 1}</span>
+                      <div className="w-8 h-8 bg-primary  rounded-full flex items-center justify-center">
+                        <span className="text-sm font-semibold text-white">#{index + 1}</span>
                       </div>
                       <div>
-                        <p className="font-medium text-secondary">{restaurant.name}</p>
+                        <p className="font-medium text-foreground">{restaurant.name}</p>
                         <div className="flex items-center space-x-2 text-sm text-secondary">
                           <Star className="h-4 w-4 fill-current" />
-                          <span>{restaurant.rating}</span>
+                          <span className="text-secondary">{restaurant.rating}</span>
                         </div>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="font-semibold text-secondary">£{restaurant.revenue.toLocaleString()}</p>
-                      <p className="text-sm text-secondary/90">{restaurant.orders} orders</p>
+                      <p className="font-semibold text-foreground">£{restaurant.revenue.toLocaleString()}</p>
+                      <p className="text-sm text-secondary">{restaurant.orders} orders</p>
                     </div>
                   </div>
                 ))}
@@ -410,15 +420,15 @@ export function AnalyticsDashboard() {
         <TabsContent value="users" className="space-y-4">
           <Card className="border-secondary/50 bg-white">
             <CardHeader>
-              <CardTitle className="text-secondary">User Growth</CardTitle>
-              <CardDescription className="text-foreground">User acquisition and retention</CardDescription>
+              <CardTitle className="text-primary">User Growth</CardTitle>
+              <CardDescription className="text-foreground/80">User acquisition and retention</CardDescription>
             </CardHeader>
             <CardContent>
               <ChartContainer
                 config={{
                   users: {
                     label: "Users",
-                    color: "#b45309",
+                    color: "#0F3D2E",
                   },
                 }}
                 className="h-[400px] w-[100%]"
@@ -429,7 +439,7 @@ export function AnalyticsDashboard() {
                     <XAxis dataKey="name" />
                     <YAxis />
                     <ChartTooltip content={<ChartTooltipContent />} />
-                    <Area type="monotone" dataKey="users" stroke="#FF7A00" fill="#FF7A00" fillOpacity={0.6} />
+                    <Area type="monotone" dataKey="users" stroke="#0F3D2E" fill="#0F3D2E" fillOpacity={0.6} />
                   </AreaChart>
                 </ResponsiveContainer>
               </ChartContainer>

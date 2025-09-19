@@ -138,64 +138,74 @@ export function OffersPage() {
   return (
     <div className="min-h-screen bg-background px-4">
       {/* Sticky Header */}
-   
+
 
       <div className="container mx-auto px-4 py-6">
         {/* Promotional Banner */}
-        <div className="mb-8 rounded-lg bg-secondary from-accent/20 to-accent/10 p-6 text-center">
-          <h2 className="text-2xl font-bold text-white mb-2">Weekend Special Deals</h2>
-          <p className="text-white">Get up to 50% off on your favorite restaurants this weekend!</p>
+        <div className="mb-8 rounded-lg relative p-6 text-center bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/pet.jpg')" }}>
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-primary/50 rounded-lg"></div>
+
+          {/* Content */}
+          <div className="relative z-10">
+            <h2 className="text-2xl font-bold text-white mb-2">Weekend Special Deals</h2>
+            <p className="text-white">
+              Get up to 50% off on your favorite restaurants this weekend!
+            </p>
+          </div>
         </div>
 
         {/* Filters and Sorting */}
         <div className=" p-4 rounded-xl">
-        <div className=" flex  max-sm:flex-col items-center gap-4 md:flex-row md:items-center md:justify-between">
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap max-sm:justify-center gap-2">
-            {filterOptions.map((filter) => (
-              <Button
-                key={filter}
-                variant={activeFilter === filter ? "default" : "outline"}
-                size="sm"
-                onClick={() => setActiveFilter(filter)}
-                className={activeFilter === filter ? "bg-primary border border-primary/50 hover:bg-primary/90 text-white cursor-pointer" : "border border-primary/50 text-primary cursor-pointer"}
-              >
-                {filter}
-              </Button>
-            ))}
-          </div>
-
-          <div className="relative">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            placeholder="Search restaurants or cuisines..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="pl-10 w-96  border border-primary/50 bg-white max-sm:w-full"
-          />
-        </div>
-
-          {/* Sort and Nearby Toggle */}
-          <div className="flex items-center gap-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger className="border-primary/50 border hover:bg-none bg-white text-foreground " asChild>
-                <Button className=" text-foregroung
-                 border-primary/50 cursor-pointer" variant="outline" size="sm">
-                  Sort by: {sortBy} <ChevronDown className="ml-2 h-4 w-4" />
+          <div className=" flex  max-sm:flex-col items-center gap-4 md:flex-row md:items-center md:justify-between">
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap max-sm:justify-center gap-2">
+              {filterOptions.map((filter) => (
+                <Button
+                  key={filter}
+                  variant={activeFilter === filter ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setActiveFilter(filter)}
+                  className={activeFilter === filter ? "bg-primary border border-primary/50 hover:bg-primary/90 text-white cursor-pointer" : "border border-primary/50 text-primary cursor-pointer"}
+                >
+                  {filter}
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white border-none">
-                {sortOptions.map((option) => (
-                  <DropdownMenuItem key={option} onClick={() => setSortBy(option)}>
-                    {option}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+              ))}
+            </div>
 
-            
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                placeholder="Search restaurants or cuisines..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 w-96  border border-primary/50 bg-white max-sm:w-full"
+              />
+            </div>
 
-            {/* <Button
+            {/* Sort and Nearby Toggle */}
+            <div className="flex items-center gap-4">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="border-primary/50 border hover:bg-none bg-white text-foreground " asChild>
+                  <Button className=" text-foregroung
+                 border-primary/50 cursor-pointer" variant="outline" size="sm">
+                    Sort by: {sortBy} <ChevronDown className="ml-2 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-white border-none">
+                  {sortOptions.map((option) => (
+                    <DropdownMenuItem key={option} onClick={() => setSortBy(option)}>
+                      {option}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+
+
+              {/* <Button
               variant={nearbyOnly ? "default" : "outline"}
               size="sm"
               onClick={() => setNearbyOnly(!nearbyOnly)}
@@ -204,10 +214,10 @@ export function OffersPage() {
               <MapPin className="mr-2 h-4 w-4 text-white" />
               Nearby Only
             </Button> */}
-          </div>
+            </div>
 
-         
-        </div>
+
+          </div>
         </div>
         {/* Results count */}
         <div className="mb-4">

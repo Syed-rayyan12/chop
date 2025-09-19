@@ -272,9 +272,9 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="text-orange-600 hover:text-orange-800 cursor-pointer hover:bg-orange-100"
+                    className="text-primary cursor-pointer hover:bg-orange-100"
                   >
-                    <MenuIcon className="h-4 w-4" />
+                    <MenuIcon className="h-4 w-4 text-primary" />
                   </Button>
                 </SheetTrigger>
 
@@ -296,7 +296,7 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 transform text-amber-500 h-4 w-4" />
                     <Input
                       placeholder="Search orders, restaurants, users..."
-                      className="pl-10 w-full border-secondary/50"
+                      className="pl-10 w-ful border border-primary/50"
                     />
                   </div>
 
@@ -339,7 +339,7 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
             </div>
           </div>
 
-          <h1 className="text-2xl font-bold text-secondary">Dashboard</h1>
+          <h1 className="text-2xl font-bold text-primary">Dashboard</h1>
         </div>
 
         {/* Right side with search (hidden on small screens), notifications & profile */}
@@ -349,13 +349,13 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 transform text-amber-500 h-4 w-4" />
             <Input
               placeholder="Search orders, restaurants, users..."
-              className="pl-10 w-full border-secondary/50"
+              className="pl-10 w-full border-primary/50"
             />
           </div>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="relative text-secondary/60 hover:text-secondary hover:bg-secondary/10">
+              <Button variant="ghost" size="sm" className="relative text-foreground/60 hover:text-secondary hover:bg-secondary/10">
                 <Bell className="h-5 w-5" />
                 {unreadCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -364,14 +364,14 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
                 )}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-80 border border-secondary/50 bg-white">
+            <DropdownMenuContent align="end" className="w-80 border border-primary/50 bg-white">
               {notifications.length === 0 ? (
                 <DropdownMenuItem className="p-3 text-sm text-gray-500">
                   No new notifications
                 </DropdownMenuItem>
               ) : (
                 notifications.slice(0, 3).map((notification) => (
-                  <DropdownMenuItem key={notification.id} className="p-3 hover:bg-secondary hover:text-background">
+                  <DropdownMenuItem key={notification.id} className="p-3 text-foreground hover:bg-primary hover:text-white">
                     <div className="space-y-1">
                       <p className="text-sm font-medium">{notification.message}</p>
                       <p className="text-xs ">{notification.time}</p>
@@ -387,16 +387,16 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="/admin-profile.png" alt="Admin" />
-                  <AvatarFallback className="bg-orange-100 text-secondary">
+                  <AvatarFallback className="bg-primary text-white">
                     AD
                   </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 border border-secondary" align="end" forceMount>
+            <DropdownMenuContent className="w-56 border border-primary/50 bg-white" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">Admin User</p>
+                  <p className="text-sm font-medium text-foreground leading-none">Admin User</p>
                   <p className="text-xs leading-none text-muted-foreground">
                     admin@chopnow.com
                   </p>
@@ -411,10 +411,10 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
                 <Settings className="h-4 w-4" />
                 <span>Settings</span>
               </DropdownMenuItem> */}
-              <DropdownMenuSeparator className="border border-secondary" />
+              <DropdownMenuSeparator className="bg-primary/50" />
               <DropdownMenuItem className="hover:bg-secondary hover:text-white" onClick={onSignOut}>
                 <LogOut className="h-4 w-4" />
-                <span>Log out</span>
+                <span className="text-foreground">Log out</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

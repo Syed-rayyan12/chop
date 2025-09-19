@@ -49,7 +49,7 @@ export function HeroSection() {
   return (
     <section
       className="relative py-16 md:py-24 bg-cover bg-center"
-      style={{ backgroundImage: "url('/boo.jpeg')" }}
+      style={{ backgroundImage: "url('/sudani.jpg')" }}
     >
       <div className="absolute inset-0 bg-black/30 z-0" />
 

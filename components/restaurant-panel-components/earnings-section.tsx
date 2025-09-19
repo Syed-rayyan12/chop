@@ -21,35 +21,35 @@ export function EarningsSection({ transactions }: EarningsSectionProps) {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardHeader>
             <CardTitle className="text-foreground">Today</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-secondary">$342.50</div>
+            <div className="text-2xl font-bold text-primary">$342.50</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardHeader>
             <CardTitle className="text-foreground">This Week</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-secondary">$1,250.00</div>
+            <div className="text-2xl font-bold text-primary">$1,250.00</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardHeader>
             <CardTitle className="text-foreground">This Month</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-secondary">$4,890.00</div>
+            <div className="text-2xl font-bold text-primary">$4,890.00</div>
           </CardContent>
         </Card>
       </div>
 
-      <Card className="border-secondary/50 bg-white">
+      <Card className="border-primary/50 bg-white">
         <CardHeader className="flex max-sm:flex-col max-sm:items-start max-sm:gap-3 flex-row items-center justify-between">
-          <CardTitle className="text-secondary">Transaction History</CardTitle>
+          <CardTitle className="text-primary">Transaction History</CardTitle>
           <div className="flex space-x-2">
             <Button size="sm" variant="outline" className="border-secondary/50 cursor-pointer text-secondary hover:bg-secondary bg-transparent">
               <Download className="h-4 w-4 mr-2" />
@@ -66,15 +66,15 @@ export function EarningsSection({ transactions }: EarningsSectionProps) {
             <table className="w-full">
               <thead className="border-b border-orange-200">
                 <tr>
-                  <th className="text-left p-3 font-medium text-secondary">Order ID</th>
-                  <th className="text-left p-3 font-medium text-secondary">Date</th>
-                  <th className="text-left p-3 font-medium text-secondary">Amount</th>
-                  <th className="text-left p-3 font-medium text-secondary">Status</th>
+                  <th className="text-left p-3 font-medium text-primary">Order ID</th>
+                  <th className="text-left p-3 font-medium text-primary">Date</th>
+                  <th className="text-left p-3 font-medium text-primary">Amount</th>
+                  <th className="text-left p-3 font-medium text-primary">Status</th>
                 </tr>
               </thead>
               <tbody>
                 {transactions.map((transaction) => (
-                  <tr key={transaction.id} className="border-b hover:bg-orange-50 border-secondary/50">
+                  <tr key={transaction.id} className="border-b hover:bg-orange-50 border-primary/50">
                     <td className="p-3 font-medium text-orange-800">#{transaction.orderId}</td>
                     <td className="p-3 text-orange-700">{transaction.date}</td>
                     <td className="p-3 font-medium text-orange-800">${transaction.amount}</td>

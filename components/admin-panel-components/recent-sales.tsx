@@ -42,18 +42,19 @@ export function RecentSales() {
   return (
     <div className="space-y-4">
       {salesData.map((sale, index) => (
-        <div key={index} className="flex items-center max-sm:items-start max-sm:gap-4 max-sm:flex-col border border-secondary/80 rounded-lg p-3">
-          <Avatar className="h-9 w-9">
-            <AvatarImage className="bg-orange-50" src={sale.avatar} alt={sale.name} />
-            <AvatarFallback>{sale.fallback}</AvatarFallback>
-          </Avatar>
+        <div key={index} className="flex items-center max-sm:items-start max-sm:gap-4 max-sm:flex-col border border-primary/50 rounded-lg p-3">
+        
+            <Avatar className="h-9 w-9 text-white">
+              <AvatarFallback className="bg-primary">{sale.fallback}</AvatarFallback>
+            </Avatar>
+       
           <div className="ml-4 space-y-1 max-sm:ml-0">
-            <p className="text-sm font-medium leading-none text-secondary">
+            <p className="text-sm font-medium leading-none text-foreground">
               {sale.name}
             </p>
-            <p className="text-sm text-foreground">{sale.items}</p>
+            <p className="text-sm text-secondary">{sale.items}</p>
           </div>
-          <div className="ml-auto font-medium text-secondary">{sale.amount}</div>
+          <div className="ml-auto font-medium text-foreground">{sale.amount}</div>
         </div>
       ))}
     </div>

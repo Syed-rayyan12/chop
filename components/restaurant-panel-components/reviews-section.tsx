@@ -20,9 +20,9 @@ interface ReviewsSectionProps {
 export function ReviewsSection({ reviews }: ReviewsSectionProps) {
   return (
     <div className="space-y-6">
-      <Card className="border-secondary/50 bg-white">
+      <Card className="border-primary/50 bg-white">
         <CardHeader>
-          <CardTitle className="text-secondary">Average Rating</CardTitle>
+          <CardTitle className="text-primary">Average Rating</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex items-center space-x-2">

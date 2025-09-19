@@ -113,15 +113,15 @@ export function DashboardOverview() {
   return (
     <div className="flex flex-col gap-6">
       {/* Welcome Section */}
-      <div className="bg-secondary rounded-lg p-6 text-white">
+      <div className="bg-primary rounded-lg p-6 text-white">
         <h2 className="text-2xl font-bold mb-2">Welcome back, Admin!</h2>
-        <p className="text-orange-100">Here's what's happening with ChopNow today.</p>
+        <p className="text-white">Here's what's happening with ChopNow today.</p>
       </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat) => (
-          <Card key={stat.title} className="border-secondary/65 bg-white shadow-none">
+          <Card key={stat.title} className="border-primary/50 bg-white shadow-none">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium ">{stat.title}</CardTitle>
               <div className={`p-2 rounded-full ${stat.bgColor}`}>
@@ -129,7 +129,7 @@ export function DashboardOverview() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold text-secondary">{stat.value}</div>
+              <div className="text-2xl font-bold text-primary">{stat.value}</div>
               <div className="flex items-center text-xs text-green-600">
                 <TrendingUp className="h-3 w-3 mr-1" />
                 {stat.change} from last month
@@ -140,14 +140,14 @@ export function DashboardOverview() {
       </div>
 
       {/* Recent Orders */}
-      <Card className="border-secondary/65 bg-white shadow-none">
+      <Card className="border-primary/50 bg-white shadow-none">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div>
-              <CardTitle className="text-secondary pb-1">Recent Orders</CardTitle>
-              <CardDescription className="text-secondary/80">Latest orders from your platform</CardDescription>
+              <CardTitle className="text-primary pb-1">Recent Orders</CardTitle>
+              <CardDescription className="text-foreground/80">Latest orders from your platform</CardDescription>
             </div>
-            <Button variant="outline" className="border-secondary/50 text-secondary hover:bg-secondary cursor-pointer bg-white">
+            <Button variant="outline" className="bg-secondary text-white hover:bg-secondary cursor-pointer">
               View All Orders
             </Button>
           </div>
@@ -157,11 +157,11 @@ export function DashboardOverview() {
             {recentOrders.map((order) => (
               <div
                 key={order.id}
-                className="flex items-center justify-between p-4 bg-white rounded-lg border border-secondary/65"
+                className="flex items-center justify-between p-4 bg-white rounded-lg border border-primary/50"
               >
                 <div className="flex max-sm:flex-col items-center space-x-4">
                   <div>
-                    <p className="font-medium text-secondary">{order.id}</p>
+                    <p className="font-medium text-primary">{order.id}</p>
                     <p className="text-sm text-secondary/80">{order.customer}</p>
                   </div>
                   <div>
@@ -170,7 +170,7 @@ export function DashboardOverview() {
                   </div>
                 </div>
                 <div className="flex max-sm:flex-col items-center space-x-4">
-                  <span className="font-bold text-secondary">{order.amount}</span>
+                  <span className="font-bold text-primary">{order.amount}</span>
                   {getStatusBadge(order.status)}
                 </div>
               </div>

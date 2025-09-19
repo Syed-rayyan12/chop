@@ -81,28 +81,28 @@ export function RestaurantDetailsModal({ restaurant, isOpen, onClose }: Restaura
         </DialogHeader>
 
         <Tabs defaultValue="details" className="mt-6">
-          <TabsList className="grid w-full grid-cols-4 bg-amber-50">
+          <TabsList className="grid w-full grid-cols-4 bg-primary rounded-xl">
             <TabsTrigger
               value="details"
-              className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-800"
+              className="data-[state=active]:bg-white data-[state=active]:text-foreground text-white  rounded-lg"
             >
               Details
             </TabsTrigger>
             <TabsTrigger
               value="performance"
-              className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-800"
+              className="data-[state=active]:bg-white data-[state=active]:text-foreground  text-white rounded-lg"
             >
               Performance
             </TabsTrigger>
             <TabsTrigger
               value="orders"
-              className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-800"
+              className="data-[state=active]:bg-white data-[state=active]:text-foreground  text-white rounded-lg"
             >
               Recent Orders
             </TabsTrigger>
             <TabsTrigger
               value="settings"
-              className="data-[state=active]:bg-orange-100 data-[state=active]:text-orange-800"
+              className="data-[state=active]:bg-white data-[state=active]:text-foreground  text-white rounded-lg"
             >
               Settings
             </TabsTrigger>
@@ -111,10 +111,12 @@ export function RestaurantDetailsModal({ restaurant, isOpen, onClose }: Restaura
           <TabsContent value="details" className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Basic Information */}
-              <Card className="border-orange-200">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-orange-800">
-                    <Store className="w-5 h-5 mr-2" />
+                  <CardTitle className="flex items-center gap-3 text-priamry">
+                    <div className="bg-primary flex justify-center items-center rounded-full w-10 h-10">
+                    <Store className="w-5 h-5 text-white" />
+                    </div>
                     Basic Information
                   </CardTitle>
                 </CardHeader>
@@ -126,78 +128,80 @@ export function RestaurantDetailsModal({ restaurant, isOpen, onClose }: Restaura
                       className="w-16 h-16 rounded-full object-cover"
                     />
                     <div>
-                      <h3 className="text-lg font-bold text-orange-800">{restaurant.name}</h3>
-                      <Badge variant="outline" className="border-orange-200 text-orange-700">
+                      <h3 className="text-lg font-bold text-primary">{restaurant.name}</h3>
+                      <Badge variant="outline" className="border border-primary/50 text-foreground">
                         {restaurant.cuisine}
                       </Badge>
                     </div>
                   </div>
 
-                  <p className="text-amber-600">{restaurant.description}</p>
+                  <p className="text-foreground">{restaurant.description}</p>
 
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
-                      <MapPin className="w-5 h-5 text-orange-600" />
-                      <span className="text-sm text-amber-700">{restaurant.address}</span>
+                      <MapPin className="w-5 h-5 text-primary" />
+                      <span className="text-sm text-foreground">{restaurant.address}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Phone className="w-5 h-5 text-orange-600" />
-                      <span className="text-sm text-amber-700">{restaurant.phone}</span>
+                      <Phone className="w-5 h-5 text-primary" />
+                      <span className="text-sm text-foreground">{restaurant.phone}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Mail className="w-5 h-5 text-orange-600" />
-                      <span className="text-sm text-amber-700">{restaurant.email}</span>
+                      <Mail className="w-5 h-5 text-primary" />
+                      <span className="text-sm text-foreground">{restaurant.email}</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <Clock className="w-5 h-5 text-orange-600" />
-                      <span className="text-sm text-amber-700">{restaurant.openingHours}</span>
+                      <Clock className="w-5 h-5 text-primary" />
+                      <span className="text-sm text-foreground">{restaurant.openingHours}</span>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               {/* Business Metrics */}
-              <Card className="border-orange-200">
+              <Card className="border border-primary/50 bg-white">
                 <CardHeader>
-                  <CardTitle className="flex items-center text-orange-800">
-                    <Star className="w-5 h-5 mr-2" />
+                  <CardTitle className="flex items-center gap-3 text-primary">
+                  <div className="bg-primary flex justify-center items-center rounded-full w-10 h-10">
+                    <Star className="w-5 h-5 text-white" />
+                    </div>
                     Business Metrics
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-orange-800">{restaurant.rating}</div>
-                      <div className="text-sm text-amber-600">Rating</div>
+                    <div className="text-center p-4  rounded-lg border border-primary/50 bg-white">
+                      <div className="text-2xl font-bold text-primary">{restaurant.rating}</div>
+                      <div className="text-sm text-foreground">Rating</div>
                     </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-orange-800">{restaurant.totalOrders}</div>
-                      <div className="text-sm text-amber-600">Total Orders</div>
+                    <div className="text-center p-4  rounded-lg border border-primary/50 bg-white">
+                      <div className="text-2xl font-bold text-primary">{restaurant.totalOrders}</div>
+                      <div className="text-sm text-foreground">Total Orders</div>
                     </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-orange-800">£{restaurant.revenue.toLocaleString()}</div>
-                      <div className="text-sm text-amber-600">Revenue</div>
+                    <div className="text-center p-4  rounded-lg border border-primary/50 bg-white">
+                      <div className="text-2xl font-bold text-primary">£{restaurant.revenue.toLocaleString()}</div>
+                      <div className="text-sm text-foreground">Revenue</div>
                     </div>
-                    <div className="text-center p-4 bg-amber-50 rounded-lg">
-                      <div className="text-2xl font-bold text-orange-800">{restaurant.commission}%</div>
-                      <div className="text-sm text-amber-600">Commission</div>
+                    <div className="text-center p-4  rounded-lg border border-primary/50 bg-white">
+                      <div className="text-2xl font-bold text-primary">{restaurant.commission}%</div>
+                      <div className="text-sm text-foreground">Commission</div>
                     </div>
                   </div>
 
-                  <Separator className="bg-orange-200" />
+                  <Separator className="bg-primary/50" />
 
                   <div className="space-y-3">
                     <div className="flex justify-between">
-                      <span className="text-amber-700">Delivery Time:</span>
-                      <span className="font-medium text-orange-800">{restaurant.deliveryTime}</span>
+                      <span className="text-foreground">Delivery Time:</span>
+                      <span className="font-medium text-primary">{restaurant.deliveryTime}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-amber-700">Minimum Order:</span>
-                      <span className="font-medium text-orange-800">£{restaurant.minimumOrder}</span>
+                      <span className="text-foreground">Minimum Order:</span>
+                      <span className="font-medium text-primary">£{restaurant.minimumOrder}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-amber-700">Join Date:</span>
-                      <span className="font-medium text-orange-800">{restaurant.joinDate}</span>
+                      <span className="text-foreground">Join Date:</span>
+                      <span className="font-medium text-primary">{restaurant.joinDate}</span>
                     </div>
                   </div>
                 </CardContent>
@@ -207,36 +211,36 @@ export function RestaurantDetailsModal({ restaurant, isOpen, onClose }: Restaura
 
           <TabsContent value="performance" className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="border-orange-200">
+              <Card className="border border-primary/50 bg-white">
                 <CardContent className="p-6">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3 justify-between">
                     <div>
-                      <p className="text-sm text-amber-600">Monthly Orders</p>
-                      <p className="text-2xl font-bold text-orange-800">247</p>
+                      <p className="text-sm text-foreground">Monthly Orders</p>
+                      <p className="text-2xl font-bold text-primary">247</p>
                     </div>
-                    <ShoppingBag className="w-8 h-8 text-orange-500" />
+                    <ShoppingBag className="w-8 h-8 text-primary" />
                   </div>
                 </CardContent>
               </Card>
-              <Card className="border-orange-200">
+              <Card className="border border-primary/50 bg-white">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-amber-600">Monthly Revenue</p>
-                      <p className="text-2xl font-bold text-orange-800">£3,240</p>
+                      <p className="text-sm text-foreground">Monthly Revenue</p>
+                      <p className="text-2xl font-bold text-primary">£3,240</p>
                     </div>
-                    <DollarSign className="w-8 h-8 text-orange-500" />
+                    <DollarSign className="w-8 h-8 text-primary" />
                   </div>
                 </CardContent>
               </Card>
-              <Card className="border-orange-200">
+              <Card className="border border-primary/50 bg-white">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-amber-600">Avg Order Value</p>
-                      <p className="text-2xl font-bold text-orange-800">£28.50</p>
+                      <p className="text-sm text-foreground">Avg Order Value</p>
+                      <p className="text-2xl font-bold text-priamryorange-800">£28.50</p>
                     </div>
-                    <Percent className="w-8 h-8 text-orange-500" />
+                    <Percent className="w-8 h-8 text-primary" />
                   </div>
                 </CardContent>
               </Card>
@@ -244,20 +248,20 @@ export function RestaurantDetailsModal({ restaurant, isOpen, onClose }: Restaura
           </TabsContent>
 
           <TabsContent value="orders" className="space-y-6">
-            <Card className="border-orange-200">
+            <Card className="border border-primary/50 bg-white">
               <CardHeader>
-                <CardTitle className="text-orange-800">Recent Orders</CardTitle>
+                <CardTitle className="text-primary">Recent Orders</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="flex items-center justify-between p-4 bg-amber-50 rounded-lg">
+                    <div key={i} className="flex items-center justify-between p-4 border-primary/50 border rounded-lg">
                       <div>
-                        <p className="font-medium text-orange-800">#ORD-00{i}</p>
-                        <p className="text-sm text-amber-600">Customer Name • 2 items</p>
+                        <p className="font-medium text-primary">#ORD-00{i}</p>
+                        <p className="text-sm text-secondary">Customer Name • 2 items</p>
                       </div>
                       <div className="text-right">
-                        <p className="font-bold text-orange-800">£{(25 + i * 3).toFixed(2)}</p>
+                        <p className="font-bold text-foreground">£{(25 + i * 3).toFixed(2)}</p>
                         <Badge className="bg-green-100 text-green-800">Delivered</Badge>
                       </div>
                     </div>
@@ -268,9 +272,9 @@ export function RestaurantDetailsModal({ restaurant, isOpen, onClose }: Restaura
           </TabsContent>
 
           <TabsContent value="settings" className="space-y-6">
-            <Card className="border-orange-200">
+            <Card className="border border-primary/50 bg-white">
               <CardHeader>
-                <CardTitle className="flex items-center text-orange-800">
+                <CardTitle className="flex items-center text-primary">
                   {getStatusIcon(currentStatus)}
                   <span className="ml-2">Restaurant Status</span>
                 </CardTitle>
@@ -278,16 +282,16 @@ export function RestaurantDetailsModal({ restaurant, isOpen, onClose }: Restaura
               <CardContent>
                 <div className="flex items-center space-x-4">
                   <Select value={currentStatus} onValueChange={handleStatusUpdate}>
-                    <SelectTrigger className="w-48 border-orange-200">
+                    <SelectTrigger className="w-48 border border-primary/50">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="active">Active</SelectItem>
-                      <SelectItem value="pending">Pending</SelectItem>
-                      <SelectItem value="inactive">Inactive</SelectItem>
+                    <SelectContent className="bg-white border border-primary/50">
+                      <SelectItem value="active" className="text-foreground">Active</SelectItem>
+                      <SelectItem value="pending" className="text-foreground">Pending</SelectItem>
+                      <SelectItem value="inactive" className="text-foreground">Inactive</SelectItem>
                     </SelectContent>
                   </Select>
-                  <Button className="bg-orange-500 hover:bg-orange-600 text-white">Update Status</Button>
+                  <Button className="bg-secondary hover:bg-secondary/80 cursor-pointer text-white">Update Status</Button>
                 </div>
               </CardContent>
             </Card>
@@ -299,12 +303,12 @@ export function RestaurantDetailsModal({ restaurant, isOpen, onClose }: Restaura
           <Button
             variant="outline"
             onClick={onClose}
-            className="border-orange-200 text-orange-700 hover:bg-orange-50 bg-transparent"
+            className="border border-secondary hover:bg-secondary bg-transparent"
           >
             Close
           </Button>
-          <Button className="bg-orange-500 hover:bg-orange-600 text-white">Edit Restaurant</Button>
-          <Button variant="outline" className="border-orange-200 text-orange-700 hover:bg-orange-50 bg-transparent">
+          <Button className="bg-secondary hover:bg-secondary/80 text-white">Edit Restaurant</Button>
+          <Button variant="outline" className="bg-secondary hover:bg-secondary/80 text-white">
             Contact Restaurant
           </Button>
         </div>

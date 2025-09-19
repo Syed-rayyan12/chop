@@ -27,22 +27,22 @@ export function Footer() {
             <h3 className="font-heading font-semibold text-foreground mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-foreground hover:text-secondary transition-colors">
+                <Link href="/about" className="text-foreground hover:text-primary transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-foreground hover:text-secondary transition-colors">
-                  Careers
+                <Link href="/careers" className="text-foreground hover:text-primary transition-colors">
+              primary
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-foreground hover:text-secondary transition-colors">
+                <Link href="/blog" className="text-foreground hover:text-primary transition-colors">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/help" className="text-foreground hover:text-secondary transition-colors">
+                <Link href="/help" className="text-foreground hover:text-primary transition-colors">
                   Help & Support
                 </Link>
               </li>
@@ -54,22 +54,22 @@ export function Footer() {
             <h3 className="font-heading font-semibold text-foreground mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/terms" className="text-foreground hover:text-secondary transition-colors">
+                <Link href="/terms" className="text-foreground hover:text-primary  transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-foreground hover:text-secondary transition-colors">
+                <Link href="/privacy" className="text-foreground hover:text-primary  transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="text-foreground hover:text-secondary transition-colors">
+                <Link href="/cookies" className="text-foreground hover:text-primary  transition-colors">
                   Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link href="/refund" className="text-foreground hover:text-secondary transition-colors">
+                <Link href="/refund" className="text-foreground hover:text-primary  transition-colors">
                   Refund Policy
                 </Link>
               </li>
@@ -103,13 +103,13 @@ export function Footer() {
               </Link>
             </div> */} <p className="text-foreground mb-4">Get the latest update from our socials</p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-foreground  transition-colors hover:bg-secondary hover:text-white w-10 h-10 rounded-full flex justify-center items-center">
+              <Link href="#" className="text-white  transition-colors hover:bg-foreground bg-primary hover:text-white w-10 h-10 rounded-full flex justify-center items-center">
                 <Facebook className="w-5 h-5" />
               </Link>
-              <Link href="#" className="text-foreground  transition-colors hover:bg-secondary hover:text-white w-10 h-10 rounded-full flex justify-center items-center">
+              <Link href="#" className="text-white  transition-colors hover:bg-foreground bg-primary hover:text-white w-10 h-10 rounded-full flex justify-center items-center">
                 <Twitter className="w-5 h-5" />
               </Link>
-              <Link href="#" className="text-foreground  transition-colors hover:bg-secondary hover:text-white w-10 h-10 rounded-full flex justify-center items-center">
+              <Link href="#" className="text-white  transition-colors hover:bg-foreground bg-primary hover:text-white w-10 h-10 rounded-full flex justify-center items-center">
                 <Instagram className="w-5 h-5" />
               </Link>
             </div>

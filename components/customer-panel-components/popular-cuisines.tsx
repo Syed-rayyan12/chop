@@ -35,19 +35,19 @@ const itemVariants = {
 
 export function PopularCuisines() {
   return (
-    <section className="py-16 bg-background relative">
+    <section className="py-16 bg-primary relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Heading */}
         <div className="text-center mb-12">
           <h2
-            className="font-heading font-bold text-3xl md:text-4xl text-primary mb-4"
+            className="font-heading font-bold text-3xl md:text-4xl text-white mb-4"
            
           >
-            Popular <span className="text-secondary">Cuisines</span>
+            Popular <span className="text-white">Cuisines</span>
           </h2>
           <p
-            className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            className="text-lg text-white max-w-2xl mx-auto"
           
           >
             Explore a world of flavors from your favorite cuisines, all available for delivery.
@@ -70,7 +70,7 @@ export function PopularCuisines() {
               className="cursor-pointer"
             >
               <Link href="/restaurants" passHref>
-                <Card className="group transition-all duration-300 border-primary/50 bg-white shadow-md hover:shadow-lg rounded-xl overflow-hidden">
+                <Card className="group transition-all duration-300 border-primary/50 backdrop-blur-2xl bg-white rounded-xl overflow-hidden">
                   <CardContent className="p-4 text-center">
                     <div className="relative overflow-hidden rounded-lg mb-3">
                       <img

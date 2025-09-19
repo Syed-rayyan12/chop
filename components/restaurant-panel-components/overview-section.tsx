@@ -33,62 +33,69 @@ export function OverviewSection({ orders, menuItems }: OverviewSectionProps) {
     return orders.filter((order) => order.status === status)
   }
 
+  const orderStats = [
+    {
+      title: "Pending Orders",
+      status: "pending",
+      icon: Clock,
+      iconWrapper: "bg-orange-100 p-2 rounded-full",
+      iconColor: "text-orange-600",
+    },
+    {
+      title: "In Progress",
+      status: "in-progress",
+      icon: Package,
+      iconWrapper: "bg-amber-100 p-2 rounded-full",
+      iconColor: "text-amber-600",
+    },
+    {
+      title: "Completed",
+      status: "completed",
+      icon: CheckCircle,
+      iconWrapper: "bg-green-100 p-2 rounded-full",
+      iconColor: "text-green-600",
+    },
+    {
+      title: "Cancelled",
+      status: "cancelled",
+      icon: CircleX,
+      iconWrapper: "bg-orange-100 p-2 rounded-full",
+      iconColor: "text-orange-600",
+    },
+  ];
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="border-secondary/50 bg-white">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-foreground">Pending Orders</CardTitle>
-            <div className="bg-orange-100 p-2 rounded-full">
-              <Clock className="h-4 w-4 text-orange-600" />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-secondary">{getOrdersByStatus("pending").length}</div>
-          </CardContent>
-        </Card>
-        <Card className="border-secondary/50 bg-white">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-foreground">In Progress</CardTitle>
-            <div className="bg-amber-100 rounded-full p-2">
-              <Package className="h-4 w-4 text-amber-600" />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold text-secondary">{getOrdersByStatus("in-progress").length}</div>
-          </CardContent>
-        </Card>
-        <Card className="border-secondary/50 bg-white">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-foreground">Completed</CardTitle>
-            <div className="bg-green-100 p-2 rounded-full">
-              <CheckCircle className="h-4 w-4 text-green-600" />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold  text-secondary">{getOrdersByStatus("completed").length}</div>
-          </CardContent>
-        </Card>
-        <Card className="border-secondary/50 bg-white">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium text-foreground">Cancelled</CardTitle>
-            <div className="rounded-full bg-orange-100 p-2">
-              <CircleX className="h-4 w-4 text-orange-600" />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold  text-secondary">{getOrdersByStatus("cancelled").length}</div>
-          </CardContent>
-        </Card>
-      </div>
+      {orderStats.map((stat, index) => {
+        const Icon = stat.icon;
+        return (
+          <Card key={index} className="border-primary/50 bg-white">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium text-foreground">
+                {stat.title}
+              </CardTitle>
+              <div className={stat.iconWrapper}>
+                <Icon className={`h-4 w-4 ${stat.iconColor}`} />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold text-primary">
+                {getOrdersByStatus(stat.status).length}
+              </div>
+            </CardContent>
+          </Card>
+        );
+      })}
+    </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardHeader>
-            <CardTitle className="text-secondary">Today's Earnings</CardTitle>
+            <CardTitle className="text-foreground">Today's Earnings</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold  text-secondary mb-2">$342.50</div>
+            <div className="text-3xl font-bold  text-primary mb-2">$342.50</div>
             <div className="text-sm text-green-600 flex items-center">
               <TrendingUp className="h-4 w-4 mr-1" />
               +12% from yesterday
@@ -96,12 +103,12 @@ export function OverviewSection({ orders, menuItems }: OverviewSectionProps) {
           </CardContent>
         </Card>
 
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardHeader>
-            <CardTitle className="text-secondary">Weekly Earnings</CardTitle>
+            <CardTitle className="text-foreground">Weekly Earnings</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-3xl font-bold text-secondary mb-2">$1,250.00</div>
+            <div className="text-3xl font-bold text-primary mb-2">$1,250.00</div>
             <div className="text-sm text-green-600 flex items-center">
               <TrendingUp className="h-4 w-4 mr-1" />
               +8% from last week
@@ -110,9 +117,9 @@ export function OverviewSection({ orders, menuItems }: OverviewSectionProps) {
         </Card>
       </div>
 
-      <Card className="border-secondary/50 bg-white">
+      <Card className="border-primary/50 bg-white">
         <CardHeader>
-          <CardTitle className="text-secondary">Top Selling Dishes</CardTitle>
+          <CardTitle className="text-primary">Top Selling Dishes</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">

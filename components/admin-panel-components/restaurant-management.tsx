@@ -186,8 +186,8 @@ export function RestaurantManagement() {
       {/* Header */}
       <div className="">
         <div>
-          <h1 className="text-3xl font-bold text-secondary">Restaurant Management</h1>
-          <p className="text-secondary/70">Manage partner restaurants and their performance</p>
+          <h1 className="text-3xl font-bold text-primary">Restaurant Management</h1>
+          <p className="text-foreground/80">Manage partner restaurants and their performance</p>
         </div>
         {/* <div className="flex items-center space-x-3">
           <Button onClick={() => setShowAddModal(true)} className="bg-orange-500 hover:bg-orange-600 text-white">
@@ -199,46 +199,46 @@ export function RestaurantManagement() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">{restaurantStats.total}</div>
+            <div className="text-2xl font-bold text-primary">{restaurantStats.total}</div>
             <div className="text-sm text-foreground">Total Restaurants</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">{restaurantStats.active}</div>
+            <div className="text-2xl font-bold text-primary">{restaurantStats.active}</div>
             <div className="text-sm text-foreground">Active</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">{restaurantStats.pending}</div>
+            <div className="text-2xl font-bold text-primary">{restaurantStats.pending}</div>
             <div className="text-sm text-foreground">Pending</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">{restaurantStats.inactive}</div>
+            <div className="text-2xl font-bold text-primary">{restaurantStats.inactive}</div>
             <div className="text-sm text-foreground">Inactive</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">£{restaurantStats.totalRevenue.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-primary">£{restaurantStats.totalRevenue.toLocaleString()}</div>
             <div className="text-sm text-foreground">Total Revenue</div>
           </CardContent>
         </Card>
-        <Card className="border-secondary/50 bg-white">
+        <Card className="border-primary/50 bg-white">
           <CardContent className="p-4">
-            <div className="text-2xl font-bold text-secondary">{restaurantStats.avgRating.toFixed(1)}</div>
+            <div className="text-2xl font-bold text-primary">{restaurantStats.avgRating.toFixed(1)}</div>
             <div className="text-sm text-foreground">Avg Rating</div>
           </CardContent>
         </Card>
       </div>
 
       {/* Filters and Search */}
-      <Card className="border-secondary/50 bg-white">
+      <Card className="border-primary/50 bg-white">
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
             <div className="flex items-center max-md:flex-col gap-3 max-md:items-center max-md:gap-3">
@@ -248,31 +248,31 @@ export function RestaurantManagement() {
                   placeholder="Search restaurants, cuisine, location..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 w-80 max-sm:w-full border-secondary/50  bg-white"
+                  className="pl-10 w-80 max-sm:w-full border-primary/50  bg-white"
                 />
               </div>
               <Select value={statusFilter} onValueChange={setStatusFilter}>
-                <SelectTrigger className="w-40 max-sm:w-full cursor-pointer bg-white border-secondary/50">
+                <SelectTrigger className="w-40 max-sm:w-full cursor-pointer bg-white border-primary/50">
                   <Filter className="w-4 h-4 mr-2" />
                   <SelectValue placeholder="Status" className="" />
                 </SelectTrigger>
-                <SelectContent className="border border-secondary/50 bg-white">
-                  <SelectItem value="all">All Status</SelectItem>
-                  <SelectItem value="active">Active</SelectItem>
-                  <SelectItem value="pending">Pending</SelectItem>
-                  <SelectItem value="inactive">Inactive</SelectItem>
+                <SelectContent className="border border-primary/50 bg-white">
+                  <SelectItem value="all"className="text-foreground" >All Status</SelectItem>
+                  <SelectItem value="active"className="text-foreground" >Active</SelectItem>
+                  <SelectItem value="pending" className="text-foreground">Pending</SelectItem>
+                  <SelectItem value="inactive" className="text-foreground">Inactive</SelectItem>
                 </SelectContent>
               </Select>
               <Select value={cuisineFilter} onValueChange={setCuisineFilter}>
-                <SelectTrigger className="w-40 cursor-pointer max-sm:w-full border-secondary/50 bg-white">
+                <SelectTrigger className="w-40 cursor-pointer max-sm:w-full border-primary/50 bg-white">
                   <SelectValue placeholder="Cuisine" />
                 </SelectTrigger>
-                <SelectContent className="border border-secondary/50 bg-white">
-                  <SelectItem value="all">All Cuisines</SelectItem>
-                  <SelectItem value="Indian">Indian</SelectItem>
-                  <SelectItem value="African">African</SelectItem>
-                  <SelectItem value="Chinese">Chinese</SelectItem>
-                  <SelectItem value="Italian">Italian</SelectItem>
+                <SelectContent className="border border-primary/50 bg-white">
+                  <SelectItem value="all" className="text-foreground">All Cuisines</SelectItem>
+                  <SelectItem value="Indian" className="text-foreground">Indian</SelectItem>
+                  <SelectItem value="African" className="text-foreground">African</SelectItem>
+                  <SelectItem value="Chinese" className="text-foreground">Chinese</SelectItem>
+                  <SelectItem value="Italian" className="text-foreground">Italian</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -280,28 +280,28 @@ export function RestaurantManagement() {
         </CardHeader>
         <CardContent>
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="lg:grid hidden w-full  grid-cols-4 bg-secondary rounded-xl">
+            <TabsList className="lg:grid hidden w-full  grid-cols-4 bg-primary rounded-xl">
               <TabsTrigger
                 value="all"
-                className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
+                className="data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
               >
                 All
               </TabsTrigger>
               <TabsTrigger
                 value="active"
-                className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
+                className="data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
               >
                 Active
               </TabsTrigger>
               <TabsTrigger
                 value="pending"
-                className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
+                className="data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
               >
                 Pending
               </TabsTrigger>
               <TabsTrigger
                 value="inactive"
-                className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
+                className="data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer"
               >
                 Inactive
               </TabsTrigger>
@@ -311,14 +311,14 @@ export function RestaurantManagement() {
               <Table>
                 <TableHeader>
                   <TableRow className="border-orange-200">
-                    <TableHead className="text-secondary">Restaurant</TableHead>
-                    <TableHead className="text-secondary">Cuisine</TableHead>
-                    <TableHead className="text-secondary">Location</TableHead>
-                    <TableHead className="text-secondary">Rating</TableHead>
-                    <TableHead className="text-secondary">Orders</TableHead>
-                    <TableHead className="text-secondary">Revenue</TableHead>
-                    <TableHead className="text-secondary">Status</TableHead>
-                    <TableHead className="text-secondary">Actions</TableHead>
+                    <TableHead className="text-foreground">Restaurant</TableHead>
+                    <TableHead className="text-foreground">Cuisine</TableHead>
+                    <TableHead className="text-foreground">Location</TableHead>
+                    <TableHead className="text-foreground">Rating</TableHead>
+                    <TableHead className="text-foreground">Orders</TableHead>
+                    <TableHead className="text-foreground">Revenue</TableHead>
+                    <TableHead className="text-foreground">Status</TableHead>
+                    <TableHead className="text-foreground">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -332,20 +332,20 @@ export function RestaurantManagement() {
                             className="w-10 h-10 rounded-full object-cover"
                           />
                           <div>
-                            <div className="font-bold text-secondary ">{restaurant.name}</div>
-                            <div className="text-sm text-secondary">{restaurant.id}</div>
+                            <div className="font-bold text-foreground ">{restaurant.name}</div>
+                            <div className="text-sm text-foreground">{restaurant.id}</div>
                           </div>
                         </div>
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline" className="border-secondary/50">
+                        <Badge variant="outline" className="border-primary/50">
                           {restaurant.cuisine}
                         </Badge>
                       </TableCell>
                       <TableCell>
                         <div className="flex items-center text-amber-600">
-                          <MapPin className="w-4 h-4 mr-1 text-secondary" />
-                          <span className="text-sm text-secondary">{restaurant.address.split(",")[0]}</span>
+                          <MapPin className="w-4 h-4 mr-1 text-primary" />
+                          <span className="text-sm text-foreground">{restaurant.address.split(",")[0]}</span>
                         </div>
                       </TableCell>
                       <TableCell>
@@ -354,8 +354,8 @@ export function RestaurantManagement() {
                           <span className="font-medium text-secondary">{restaurant.rating}</span>
                         </div>
                       </TableCell>
-                      <TableCell className="font-medium text-secondary">{restaurant.totalOrders}</TableCell>
-                      <TableCell className="font-bold text-secondary">
+                      <TableCell className="font-medium text-foreground">{restaurant.totalOrders}</TableCell>
+                      <TableCell className="font-bold text-foreground">
                         £{restaurant.revenue.toLocaleString()}
                       </TableCell>
                       <TableCell>{getStatusBadge(restaurant.status)}</TableCell>
@@ -365,7 +365,7 @@ export function RestaurantManagement() {
                             variant="ghost"
                             size="sm"
                             onClick={() => setSelectedRestaurant(restaurant)}
-                            className="text-orange-600 hover:text-orange-800 hover:bg-orange-100"
+                            className="hover:bg-primary"
                           >
                             <Eye className="w-4 h-4" />
                           </Button>
@@ -374,7 +374,7 @@ export function RestaurantManagement() {
                               <Button
                                 variant="ghost"
                                 size="sm"
-                                className="text-orange-600 hover:text-orange-800 hover:bg-orange-100"
+                                className="hover:bg-primary"
                               >
                                 <MoreHorizontal className="w-4 h-4" />
                               </Button>

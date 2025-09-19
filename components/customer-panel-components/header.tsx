@@ -232,10 +232,10 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/restaurants" className="text-foreground hover:text-secondary transition-colors ">
+            <Link href="/restaurants" className="text-foreground hover:text-primary transition-colors ">
               Restaurants
             </Link>
-            <Link href="/offers" className="text-foreground hover:text-secondary transition-colors">
+            <Link href="/offers" className="text-foreground hover:text-primary transition-colors">
               Offers
             </Link>
           </nav>
