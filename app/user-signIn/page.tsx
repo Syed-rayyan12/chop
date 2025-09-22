@@ -128,7 +128,7 @@ export default function Page() {
             <button
               type="button"
               onClick={() => router.push("/user-signup")}
-              className="text-indigo-600 font-medium cursor-pointer hover:underline"
+              className="text-primary font-medium cursor-pointer hover:underline"
             >
               Sign up
             </button>

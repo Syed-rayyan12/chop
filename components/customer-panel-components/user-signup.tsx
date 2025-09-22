@@ -71,7 +71,7 @@ export default function RiderSignup() {
       {/* ✅ Render Toaster */}
       <Toaster />
 
-      <Card className="w-full max-w-md max-sm:mx-4 border border-primary/50">
+      <Card className="w-full max-w-md max-sm:mx-4 bg-white border border-primary/50">
         <CardHeader className="text-center space-y-4">
           <Link href="/">
           <img
