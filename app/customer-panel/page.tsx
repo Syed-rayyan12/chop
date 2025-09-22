@@ -11,7 +11,7 @@ const page = () => {
     return (
         <>
             <div className="min-h-screen bg-background">
-                <RestaurantRiderNavbar />
+                {/* <RestaurantRiderNavbar /> */}
                 <Header />
                 <main>
                     <HeroSection />

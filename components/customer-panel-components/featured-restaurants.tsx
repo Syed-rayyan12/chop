@@ -70,7 +70,7 @@ const itemVariants = {
 export function FeaturedRestaurants() {
   return (
     <section className="py-16 bg-white relative">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" className="absolute top-8 left-8 w-24 h-24 sway-right">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" className="absolute top-8 left-8 w-24 h-24 sm:hidden sway-right">
   <path fill="#0F3D2E" d="M100,0 C180,70 180,230 100,300 C20,230 20,70 100,0 Z"/>
   <ellipse cx="70" cy="120" rx="10" ry="18" fill="white"/>
   <ellipse cx="130" cy="120" rx="10" ry="18" fill="white"/>
@@ -78,7 +78,7 @@ export function FeaturedRestaurants() {
   <path fill="white" d="M80,230 Q100,250 120,230 Q100,255 80,230 Z"/>
 </svg>
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" className="absolute top-8 right-8 w-24 h-24 sway-right">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" className="absolute top-8 right-8 w-24 h-24 max-sm:hidden sway-right">
   <path fill="#0F3D2E" d="M100,5 C170,60 170,240 100,295 C30,240 30,60 100,5 Z"/>
   <circle cx="70" cy="110" r="15" fill="white"/>
   <circle cx="130" cy="110" r="15" fill="white"/>

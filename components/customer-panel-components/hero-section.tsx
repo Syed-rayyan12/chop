@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, MapPin } from "lucide-react"
-import { motion } from "framer-motion"
+import { motion, easeOut } from "framer-motion"
 
 export function HeroSection() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -29,12 +29,12 @@ export function HeroSection() {
   // Animation variants
   const leftVariant = {
     hidden: { opacity: 0, x: -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeOut } },
   }
 
   const rightVariant = {
     hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: easeOut } },
   }
 
   const boxVariant = {
@@ -42,7 +42,6 @@ export function HeroSection() {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.6, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.2 },
     },
   }
 
@@ -58,9 +57,8 @@ export function HeroSection() {
           {/* Animated Heading */}
           <motion.h1
             initial={{ y: -100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: easeOut }}
             className="font-heading font-bold text-4xl md:text-6xl lg:text-7xl text-[#FDFBEA] mb-6"
           >
             Hungry? We've got you <span className="text-background">covered</span>
@@ -69,9 +67,8 @@ export function HeroSection() {
           {/* Animated Paragraph */}
           <motion.p
             initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: easeOut, delay: 0.3 }}
             className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-[#FDFBEA]"
           >
             Order from your favorite restaurants and get fresh, hot food delivered to your door in minutes.
@@ -83,8 +80,8 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row gap-4 p-4 bg-white rounded-lg shadow-lg text-primary"
               variants={boxVariant}
               initial="hidden"
-              whileInView="visible"
-              viewport={{ once: false, amount: 0.3 }}
+              animate="visible"
+              transition={{ duration: 0.6, ease: easeOut, when: "beforeChildren", staggerChildren: 0.2 }}
             >
               {/* Search Input */}
               <motion.div variants={rightVariant} className="flex-1 relative">
@@ -123,9 +120,8 @@ export function HeroSection() {
           {/* Animated CTA */}
           <motion.div
             initial={{ y: 100, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: easeOut, delay: 0.5 }}
           >
             <Button
               size="lg"

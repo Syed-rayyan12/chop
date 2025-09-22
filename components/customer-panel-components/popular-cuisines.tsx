@@ -38,7 +38,7 @@ export function PopularCuisines() {
     <section className="py-16 bg-primary relative">
       
 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" className="absolute top-8 left-8 w-24 h-24 rotate-6 "> 
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" className="absolute top-8 left-8 w-24 h-24 max-sm:hidden  rotate-6 "> 
   <ellipse cx="100" cy="150" rx="70" ry="130" fill="white"/>
  
 
@@ -52,7 +52,7 @@ export function PopularCuisines() {
   <ellipse cx="100" cy="200" rx="20" ry="10" fill="black"/>
 </svg>
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" className="absolute right-8 top-8  w-24 h-24 -rotate-6">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300" className="absolute right-8 top-8  w-24 h-24 max-sm:hidden -rotate-6">
  
   <path d="M100 10 L160 60 L150 260 L100 290 L50 260 L40 60 Z" fill="white"/>
  

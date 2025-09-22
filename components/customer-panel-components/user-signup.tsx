@@ -95,7 +95,7 @@ export default function RiderSignup() {
                 placeholder="First Name"
                 value={formData.firstName}
                 onChange={handleChange}
-                className="pl-10 border border-primary/50"
+                className="pl-10 border text-foreground border-primary/50"
                 required
               />
             </div>
@@ -110,7 +110,7 @@ export default function RiderSignup() {
                 placeholder="Last Name"
                 value={formData.lastName}
                 onChange={handleChange}
-                className="pl-10 border border-primary/50"
+                className="pl-10 border text-foreground border-primary/50"
                 required
               />
             </div>
@@ -125,7 +125,7 @@ export default function RiderSignup() {
                 placeholder="Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="pl-10 border border-primary/50"
+                className="pl-10 border text-foreground border-primary/50"
                 required
               />
             </div>
@@ -140,7 +140,7 @@ export default function RiderSignup() {
                 placeholder="+44 7123 456789"
                 value={formData.phone}
                 onChange={handleChange}
-                className="pl-10 border border-primary/50"
+                className="pl-10 border text-foreground border-primary/50"
                 required
               />
             </div>
@@ -154,7 +154,7 @@ export default function RiderSignup() {
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
-                className="pr-10 border border-primary/50"
+                className="pr-10 border text-foreground border-primary/50"
                 required
               />
               <button
