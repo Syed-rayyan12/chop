@@ -50,26 +50,26 @@ export function RestaurantRiderNavbar() {
             </div>
           </DropdownMenuTrigger>
 
-          <DropdownMenuContent className="w-56">
+          <DropdownMenuContent className="w-56 bg-white border border-primary/50 text-foreground">
             {/* Rider Panel */}
             <DropdownMenuLabel>Rider Panel</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => navigateTo("/rider-signIn")}>
-              <LogIn className="w-4 h-4 mr-2" />
+            <DropdownMenuItem className="hover:bg-primary hover:text-white cursor-pointer" onClick={() => navigateTo("/rider-signIn")}>
+              <LogIn className="w-4 h-4 mr-2 hover:text-white" />
               Sign In
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => navigateTo("/rider-signup")}>
-              <UserPlus className="w-4 h-4 mr-2" />
+            <DropdownMenuItem className="hover:bg-primary hover:text-white cursor-pointer" onClick={() => navigateTo("/rider-signup")}>
+              <UserPlus className="w-4 h-4 mr-2 hover:text-white" />
               Sign Up
             </DropdownMenuItem>
 
             {/* Restaurant Panel */}
             <DropdownMenuLabel>Restaurant Panel</DropdownMenuLabel>
-            <DropdownMenuItem onClick={() => navigateTo("/restaurant-signIn")}>
-              <LogIn className="w-4 h-4 mr-2" />
+            <DropdownMenuItem className="hover:bg-primary hover:text-white cursor-pointer" onClick={() => navigateTo("/restaurant-signIn")}>
+              <LogIn className="w-4 h-4 mr-2 hover:text-white" />
               Sign In
             </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => navigateTo("/restaurant-signup")}>
-              <UserPlus className="w-4 h-4 mr-2" />
+            <DropdownMenuItem className="hover:bg-primary hover:text-white cursor-pointer" onClick={() => navigateTo("/restaurant-signup")}>
+              <UserPlus className="w-4 h-4 mr-2 hover:text-white" />
               Sign Up
             </DropdownMenuItem>
           </DropdownMenuContent>
