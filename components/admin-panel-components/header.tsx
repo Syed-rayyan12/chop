@@ -189,7 +189,7 @@ export function Header({ collapsed, setCollapsed, notifications }: DashboardHead
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="/admin-profile.png" alt="Admin" />
-                  <AvatarFallback className="bg-primary text-white">
+                  <AvatarFallback className="bg-primary text-white cursor-pointer">
                     AD
                   </AvatarFallback>
                 </Avatar>
@@ -213,10 +213,10 @@ export function Header({ collapsed, setCollapsed, notifications }: DashboardHead
                 <Settings className="h-4 w-4" />
                 <span>Settings</span>
               </DropdownMenuItem> */}
-              <DropdownMenuSeparator className="border border-primary" />
-              <DropdownMenuItem>
-                <LogOut className="h-4 w-4" />
-                <span className="text-foreground">Log out</span>
+              <DropdownMenuSeparator className="bg-primary/50 " />
+              <DropdownMenuItem className="hover:bg-primary hover:text-white text-foreground cursor-pointer">
+                <LogOut className="h-4 w-4 hover:text-white" />
+                Log Out
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

@@ -220,7 +220,7 @@ export function RiderHeader({ collapsed, setCollapsed,notifications }: Dashboard
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 border border-secondary bg-white" align="end" forceMount>
+            <DropdownMenuContent className="w-56 border border-primary/50 bg-white" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
                   <p className="text-sm font-medium text-foreground leading-none">Rider User</p>
@@ -238,10 +238,10 @@ export function RiderHeader({ collapsed, setCollapsed,notifications }: Dashboard
                 <Settings className="h-4 w-4" />
                 <span>Settings</span>
               </DropdownMenuItem> */}
-              <DropdownMenuSeparator className="border border-secondary"/>
-              <DropdownMenuItem className="hover:bg-primary hover:text-white cursor-pointer" onClick={handleLogout}>
-                <LogOut className="h-4 w-4" />
-                <span className="text-foreground">Log out</span>
+              <DropdownMenuSeparator className="bg-primary/50"/>
+              <DropdownMenuItem className="hover:bg-primary hover:text-white text-foreground cursor-pointer" onClick={handleLogout}>
+                <LogOut className="h-4 w-4 hover:text-white" />
+               Log Out
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

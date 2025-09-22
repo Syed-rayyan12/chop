@@ -260,7 +260,7 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
   const unreadCount = notifications.filter((n) => n.status === "unread").length
 
   return (
-    <header className="bg-background border-b border-orange-200 px-6 py-[13px] h-16">
+    <header className="bg-background border-b border-primary/50 px-6 py-[13px] h-16">
       <div className="flex items-center justify-between">
         {/* Left side with toggle & title */}
         <div className="flex items-center space-x-4">
@@ -349,13 +349,13 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 transform text-amber-500 h-4 w-4" />
             <Input
               placeholder="Search orders, restaurants, users..."
-              className="pl-10 w-full border-primary/50"
+              className="pl-10 w-64 border-primary/50"
             />
           </div>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="relative text-foreground/60 hover:text-secondary hover:bg-secondary/10">
+              <Button variant="mys" size="sm" className="relative cursor-pointer ">
                 <Bell className="h-5 w-5" />
                 {unreadCount > 0 && (
                   <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -387,7 +387,7 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
               <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src="/admin-profile.png" alt="Admin" />
-                  <AvatarFallback className="bg-primary text-white">
+                  <AvatarFallback className="bg-primary cursor-pointer text-white">
                     AD
                   </AvatarFallback>
                 </Avatar>
@@ -412,9 +412,9 @@ export function DashboardHeader({ collapsed, setCollapsed, onSignOut, notificati
                 <span>Settings</span>
               </DropdownMenuItem> */}
               <DropdownMenuSeparator className="bg-primary/50" />
-              <DropdownMenuItem className="hover:bg-secondary hover:text-white" onClick={onSignOut}>
-                <LogOut className="h-4 w-4" />
-                <span className="text-foreground">Log out</span>
+              <DropdownMenuItem className="hover:bg-primary hover:text-white cursor-pointer text-foreground" onClick={onSignOut}>
+                <LogOut className="h-4 w-4 hover;text-white" />
+              Log Out
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
