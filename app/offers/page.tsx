@@ -9,7 +9,7 @@ const page = () => {
     <>
     <div>
 
-       <RestaurantRiderNavbar/>
+       {/* <RestaurantRiderNavbar/> */}
        <Header/>
        
        <main>

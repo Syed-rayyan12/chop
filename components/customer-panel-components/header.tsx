@@ -223,19 +223,34 @@ export function Header() {
 
           {/* Location */}
           <div className="hidden md:flex items-center space-x-2 text-foreground">
-            <MapPin className="w-4 h-4 text-foreground" />
+            {/* <MapPin className="w-4 h-4 text-foreground" />
             <span className="text-sm text-foreground">Deliver to</span>
             <Button variant="ghost" size="sm" className=" font-medium cursor-pointer">
               Current Location
-            </Button>
+            </Button> */}
             <nav className="hidden md:flex items-center space-x-6">
-            <Link href="/restaurants" className="text-foreground hover:text-primary transition-colors ">
-              Restaurants
-            </Link>
-            <Link href="/offers" className="text-foreground hover:text-primary transition-colors">
-              Offers
-            </Link>
-          </nav>
+              <Link href="/restaurants" className="text-foreground hover:text-primary transition-colors ">
+                Restaurants
+              </Link>
+              <Link href="/offers" className="text-foreground hover:text-primary transition-colors">
+                Offers
+              </Link>
+              <Link href="/about" className="text-foreground hover:text-primary transition-colors">
+                About
+              </Link>
+              <Link href="/partners" className="text-foreground hover:text-primary transition-colors">
+               Partners
+              </Link>
+              <Link href="/services" className="text-foreground hover:text-primary transition-colors">
+                Services
+              </Link>
+              <Link href="/career" className="text-foreground hover:text-primary transition-colors">
+                Carrers
+              </Link>
+              <Link href="/contact" className="text-foreground hover:text-primary transition-colors">
+                Contact
+              </Link>
+            </nav>
           </div>
 
           {/* Desktop Navigation */}
@@ -261,45 +276,16 @@ export function Header() {
               </Link>
             </Button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                  <Button variant="tertiary" size="sm" className="flex items-center gap-2 cursor-pointer">
-                  <User className="w-5 h-5 text-foreground" />
-                </Button>
-              </DropdownMenuTrigger>
+            <Link href="/user-signIn">
+              <Button
 
-              <DropdownMenuContent align="end" className="w-56 bg-white border-none">
-                {user ? (
-                  <>
-                    <DropdownMenuItem asChild>
-                      <Link href="/profile" className="flex items-center cursor-pointer">
-                        <Settings className="w-4 h-4 mr-2" />
-                        Profile
-                      </Link>
-                    </DropdownMenuItem>
+                size="sm"
+                className="flex items-center gap-2 cursor-pointer bg-primary text-white px-8 py-5"
+              >
 
-                    <DropdownMenuSeparator className="text-foreground bg-foreground" />
-
-                    <DropdownMenuItem onClick={handleLogout} className="text-destructive cursor-pointer">
-                      <LogOut className="w-4 h-4 mr-2" />
-                      Logout
-                    </DropdownMenuItem>
-                  </>
-                ) : (
-                  <>
-                    <DropdownMenuItem onClick={handleLogin} className="cursor-pointer hover:bg-secondary hover:text-white">
-                      <LogIn className="w-4 h-4 mr-2  hover:text-white" />
-                      Sign In
-                    </DropdownMenuItem>
-                   
-                    <DropdownMenuItem onClick={handleSignup} className="cursor-pointer  hover:bg-secondary hover:text-white">
-                      <UserPlus className="w-4 h-4 mr-2 hover:text-white" />
-                      Sign Up
-                    </DropdownMenuItem>
-                  </>
-                )}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                <span className="text-[15px]">Log In</span>
+              </Button>
+            </Link>
 
             <Button variant="ghost" size="sm" className="md:hidden cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X className="w-5 h-5 transition-all duration-300" /> : <Menu className="w-5 h-5 transition-all duration-300" />}
@@ -309,9 +295,8 @@ export function Header() {
 
         {/* Mobile Menu (fixed height + smooth animation) */}
         <div
-          className={`md:hidden  border-primary/50 transition-all duration-500 overflow-hidden ${
-            isMenuOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0 py-0"
-          }`}
+          className={`md:hidden  border-primary/50 transition-all duration-500 overflow-hidden ${isMenuOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0 py-0"
+            }`}
         >
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-2 text-muted-foreground">

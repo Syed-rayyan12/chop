@@ -32,8 +32,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-foreground hover:text-primary transition-colors">
-              primary
+                <Link href="/career" className="text-foreground hover:text-primary transition-colors">
+                Career
                 </Link>
               </li>
               <li>
@@ -42,7 +42,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/help" className="text-foreground hover:text-primary transition-colors">
+                <Link href="/help-support" className="text-foreground hover:text-primary transition-colors">
                   Help & Support
                 </Link>
               </li>
@@ -54,22 +54,22 @@ export function Footer() {
             <h3 className="font-heading font-semibold text-foreground mb-4">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/terms" className="text-foreground hover:text-primary  transition-colors">
+                <Link href="/services" className="text-foreground hover:text-primary  transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-foreground hover:text-primary  transition-colors">
+                <Link href="/privacy-policy" className="text-foreground hover:text-primary  transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/cookies" className="text-foreground hover:text-primary  transition-colors">
+                <Link href="/cookie-policy" className="text-foreground hover:text-primary  transition-colors">
                   Cookie Policy
                 </Link>
               </li>
               <li>
-                <Link href="/refund" className="text-foreground hover:text-primary  transition-colors">
+                <Link href="/refund-policy" className="text-foreground hover:text-primary  transition-colors">
                   Refund Policy
                 </Link>
               </li>

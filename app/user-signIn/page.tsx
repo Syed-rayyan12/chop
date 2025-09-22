@@ -2,10 +2,10 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Eye, EyeOff, User } from "lucide-react"
-import { Button } from "react-day-picker"
+import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 export default function Page() {
@@ -35,17 +35,12 @@ export default function Page() {
     try {
       const res = await fetch("http://localhost:4000/api/user/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
 
       const data = await res.json()
-
-      if (!res.ok) {
-        throw new Error(data.message || "Something went wrong")
-      }
+      if (!res.ok) throw new Error(data.message || "Something went wrong")
 
       if (data.token) localStorage.setItem("token", data.token)
 
@@ -53,7 +48,7 @@ export default function Page() {
       if (data.user?.role === "USER") {
         router.push("/customer-panel")
       } else {
-        router.push("/") // or another route
+        router.push("/") // fallback
       }
     } catch (err: any) {
       setError(err.message)
@@ -63,21 +58,21 @@ export default function Page() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-orange-100">
-      <Card className="w-full max-w-md border max-sm:mx-4 border-secondary">
+    <div className="flex justify-center bg-white items-center min-h-screen">
+      <Card className="w-full max-w-md border bg-white max-sm:mx-4 border-primary/40">
         <CardHeader className="text-center space-y-4">
           <Link href="/">
-          <img
-            src="/chopNow.png"
-            alt="ChopNow Logo"
-            className="mx-auto w-32 object-cover"
+            <img
+              src="/chopNow.png"
+              alt="ChopNow Logo"
+              className="mx-auto w-32 object-cover"
             />
-            </Link>
-       
+          </Link>
           <p className="text-gray-600">Login to your User account</p>
         </CardHeader>
 
         <CardContent>
+          {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Email */}
             <div className="space-y-2 relative">
@@ -89,7 +84,7 @@ export default function Page() {
                 placeholder="john@example.com"
                 value={formData.email}
                 onChange={handleChange}
-                className="pl-10 border border-secondary/50"
+                className="pl-10 border border-primary/40"
                 required
               />
             </div>
@@ -103,7 +98,7 @@ export default function Page() {
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
-                className="pr-10 border border-secondary/50"
+                className="pr-10 border border-primary/40"
                 required
               />
               <button
@@ -115,15 +110,42 @@ export default function Page() {
               </button>
             </div>
 
-            <Button type="submit" className="w-full bg-[#dd6636] text-white rounded-lg px-2 py-2">
+            {/* Login Button */}
+            <Button
+              type="submit"
+              className="w-full bg-primary cursor-pointer hover:bg-primary/90 text-white rounded-lg px-2 py-2"
+            >
               {loading ? "Signing in..." : "Sign In"}
             </Button>
 
             {error && <p className="text-red-500 mt-3 text-center">{error}</p>}
           </form>
+
+          {/* Divider */}
+          <div className="flex items-center my-6">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <span className="mx-4 text-gray-500 text-sm">OR</span>
+            <div className="flex-grow border-t border-gray-300"></div>
+          </div>
+
+          {/* Secondary Options */}
+          <div className="space-y-3">
+            <Button
+              onClick={() => router.push("/rider-signup")}
+              className="w-full bg-indigo-500 hover:bg-indigo-600 text-white"
+            >
+              Sign Up as Rider
+            </Button>
+
+            <Button
+              onClick={() => router.push("/restaurant-signup")}
+              className="w-full bg-green-500 hover:bg-green-600 text-white"
+            >
+              Sign Up as Restaurant
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>
   )
 }
-

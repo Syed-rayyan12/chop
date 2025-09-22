@@ -13,7 +13,7 @@ import { PopularCuisines } from "@/components/customer-panel-components/popular-
 export default function Page() {
   return (
     <div className="min-h-screen bg-background">
-      <RestaurantRiderNavbar/>
+      {/* <RestaurantRiderNavbar/> */}
       <Header />
       <main>
         <HeroSection />

@@ -234,7 +234,7 @@ export default function RestaurantsPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <RestaurantRiderNavbar/>
+      {/* <RestaurantRiderNavbar/> */}
       <Header />
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
