@@ -247,3 +247,17 @@
   transform-origin: 60px 110px; /* match cx,cy of circle */
 }
 
+.sway-right {
+  display: inline-block;
+  animation: swayRight 2s ease-in-out infinite;
+}
+
+@keyframes swayRight {
+  0%, 100% {
+    transform: rotate(0deg);   /* mid */
+  }
+  50% {
+    transform: rotate(20deg);  /* right */
+  }
+}
+
