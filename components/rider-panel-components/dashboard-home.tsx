@@ -13,8 +13,8 @@ const orders = [
   {
     id: 1,
     status: "Delivered",
-    icon: <Package className="h-4 w-4 text-green-600" />,
-    iconBg: "bg-green-100",
+    icon: <Package className="h-4 w-4 text-white" />,
+    iconBg: "bg-primary",
     merchant: "McDonald's",
     items: "2 items",
     amount: "+£8.50",
@@ -23,8 +23,8 @@ const orders = [
   {
     id: 2,
     status: "Completed",
-    icon: <Package className="h-4 w-4 text-green-600" />,
-    iconBg: "bg-green-100",
+    icon: <Package className="h-4 w-4 text-white" />,
+    iconBg: "bg-primary",
     merchant: "Burger King",
     items: "1 item",
     amount: "+£6.25",
@@ -33,8 +33,8 @@ const orders = [
   {
     id: 3,
     status: "Delivered",
-    icon: <Package className="h-4 w-4 text-green-600" />,
-    iconBg: "bg-green-100",
+    icon: <Package className="h-4 w-4 text-white" />,
+    iconBg: "bg-primary",
     merchant: "McDonald's",
     items: "2 items",
     amount: "+£8.50",
@@ -43,8 +43,8 @@ const orders = [
   {
     id: 4,
     status: "Completed",
-    icon: <Package className="h-4 w-4 text-green-600" />,
-    iconBg: "bg-green-100",
+    icon: <Package className="h-4 w-4 text-white" />,
+    iconBg: "bg-primary",
     merchant: "Burger King",
     items: "1 item",
     amount: "+£6.25",
@@ -164,7 +164,7 @@ export function DashboardHome() {
   return (
     <div className="flex flex-col gap-6">
       {/* Welcome Section */}
-      <div className="flex bg-gradient-to-r justify-between max-sm:gap-3 from-secondary to-secondary/80 p-6 max-sm:flex-col rounded-lg">
+      <div className="flex bg-primary justify-between max-sm:gap-3  p-6 max-sm:flex-col rounded-lg">
         <div>
           <h2 className="text-2xl font-bold mb-2 text-white">Good Morning, John!</h2>
           <p className="text-white">Ready to start earning today?</p>
@@ -205,27 +205,27 @@ export function DashboardHome() {
       {/* Active Orders & Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Active Orders */}
-        <Card className="bg-white border-secondary/50">
+        <Card className="bg-white border-primary/50">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 text-secondary">
-              <Package className="h-5 w-5 text-secondary" />
-              <span className="text-secondary">Active Orders</span>
-              <Badge className="bg-white text-secondary">{activeOrders.length}</Badge>
+              <Package className="h-5 w-5 text-primary" />
+              <span className="text-primary">Active Orders</span>
+              <Badge className="bg-primary text-white rounded-full">{activeOrders.length}</Badge>
             </CardTitle>
           </CardHeader>
 
           <CardContent className="space-y-4">
             {activeOrders.map((order) => (
-              <div key={order.id} className="p-4 border border-secondary/50 bg-white rounded-lg">
+              <div key={order.id} className="p-4 border text-primary border-primary/50 bg-white rounded-lg">
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <p className="font-semibold text-secondary">{order.id}</p>
-                    <p className="text-sm text-secondary/90">{order.restaurant} • {order.items} items</p>
+                    <p className="font-semibold text-primary">{order.id}</p>
+                    <p className="text-sm text-foreground/80">{order.restaurant} • {order.items} items</p>
                   </div>
                   {getStatusBadge(order.status)}
                 </div>
 
-                <div className="flex items-center space-x-2 text-sm text-secondary mb-3">
+                <div className="flex items-center space-x-2 text-sm text-foreground mb-3">
                   <MapPin className="h-4 w-4" />
                   <span>{order.address}</span>
                 </div>
@@ -246,32 +246,32 @@ export function DashboardHome() {
         </Card>
 
         {/* Recent Activity */}
-        <Card className="bg-white border-secondary/50">
+        <Card className="bg-white border-primary/50">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 text-secondary">
-              <TrendingUp className="h-5 w-5 text-secondary" />
-              <span className="text-secondary">Recent Activity</span>
+              <TrendingUp className="h-5 w-5 text-primary" />
+              <span className="text-primary">Recent Activity</span>
             </CardTitle>
           </CardHeader>
 
           <CardContent className="space-y-4">
             {orders.map((order, index) => (
-              <div key={index} className="flex items-center  justify-between p-3 bg-white rounded-lg border border-secondary/50">
+              <div key={index} className="flex items-center  justify-between p-3 bg-white rounded-lg border border-primary/50">
                 <div className="flex items-center max-sm:flex-col max-sm:items-start space-x-3">
-                  <div className={`p-2  ${order.iconBg} rounded-full`}>{order.icon}</div>
+                  <div className={`p-2  ${order.iconBg} rounded-full text-primary`}>{order.icon}</div>
                   <div>
-                    <p className="font-medium text-secondary flex items-center gap-2">
+                    <p className="font-medium text-primary flex items-center gap-2">
                       ORD-{String(order.id).padStart(3, "0")}
                       <Badge variant="secondary" className="bg-green-100 text-green-600 font-medium flex items-center gap-1">
                         <CheckCircle className="h-3 w-3" />
                         {order.status}
                       </Badge>
                     </p>
-                    <p className="text-sm text-secondary/90">{order.merchant} • {order.items}</p>
+                    <p className="text-sm text-foreground/80">{order.merchant} • {order.items}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="font-semibold text-secondary">{order.amount}</p>
+                  <p className="font-semibold text-foreground">{order.amount}</p>
                   <p className="text-xs text-secondary/60">{order.time}</p>
                 </div>
               </div>

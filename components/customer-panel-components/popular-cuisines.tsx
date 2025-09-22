@@ -56,7 +56,7 @@ export function PopularCuisines() {
 
         {/* Grid with animation */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4"
+          className="grid grid-cols-8 md:grid-cols-4 max-sm:grid-cols-2 lg:grid-cols-8 gap-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

@@ -25,8 +25,8 @@ export function RestaurantSignIn({ onLogin }: RiderLoginProps) {
   }
 
   return (
-    <div className="min-h-screen bg-orange-100 flex items-center justify-center p-4">
-      <Card className="w-full max-w-md border  border-secondary">
+    <div className="min-h-screen bg-white  flex items-center justify-center p-4">
+      <Card className="w-full max-w-md border bg-white  border-primary/40">
         <CardHeader className="text-center space-y-4">
           <Link href="/">
         <img
@@ -45,10 +45,10 @@ export function RestaurantSignIn({ onLogin }: RiderLoginProps) {
                 <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input
                   type="text"
-                  placeholder=""
+                  placeholder="Enter your Email"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="pl-10 border border-secondary/50"
+                  className="pl-10 border text-foreground border-primary/40"
                 />
               </div>
             </div>
@@ -61,7 +61,7 @@ export function RestaurantSignIn({ onLogin }: RiderLoginProps) {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 pr-10 border border-secondary/50"
+                  className="pl-10 pr-10 border text-foreground border-primary/40"
                 />
                 <button
                   type="button"
@@ -74,12 +74,12 @@ export function RestaurantSignIn({ onLogin }: RiderLoginProps) {
             </div>
             <Button
               type="submit"
-              className="w-full bg-[#dd6636]"
+              className="w-full bg-primary hover:bg-primary/90 cursor-pointer"
             >
               Sign In
             </Button>
             <div className="text-center">
-              <a href="#" className="text-sm text-orange-600 hover:text-orange-700">
+              <a href="#" className="text-sm text-foreground">
                 Forgot Password?
               </a>
             </div>

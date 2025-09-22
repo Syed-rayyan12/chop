@@ -61,22 +61,22 @@ export function OrdersSection() {
   return (
     <div className="">
       <div className="mb-6 ">
-        <h1 className="text-2xl font-bold text-secondary">Orders</h1>
-        <p className="text-secondary/70">Manage your deliveries</p>
+        <h1 className="text-2xl font-bold text-primary">Orders</h1>
+        <p className="text-foreground/80">Manage your deliveries</p>
       </div>
 
       <Tabs defaultValue="active" className="space-y-4">
-        <TabsList className="grid w-full grid-cols-2 bg-secondary border-secondary">
-          <TabsTrigger value="active" className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Active Orders</TabsTrigger>
-          <TabsTrigger value="completed" className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Completed</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 bg-primary">
+          <TabsTrigger value="active" className="data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Active Orders</TabsTrigger>
+          <TabsTrigger value="completed" className="data-[state=active]:bg-white data-[state=active]:text-foreground text-background rounded-lg cursor-pointer">Completed</TabsTrigger>
         </TabsList>
 
         <TabsContent value="active" className="space-y-4">
           {activeOrders.map((order) => (
-            <Card key={order.id} className="border border-secondary/50 bg-white">
+            <Card key={order.id} className="border border-primary/50 bg-white">
               <CardHeader className="pb-3">
                 <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg text-secondary">{order.id}</CardTitle>
+                  <CardTitle className="text-lg text-primary">{order.id}</CardTitle>
                   <Badge
                     className={
                       order.status === "picked_up" ? "bg-blue-100 text-blue-800" : "bg-yellow-100 text-yellow-800"
@@ -86,26 +86,26 @@ export function OrdersSection() {
                   </Badge>
                 </div>
                 <div className="flex items-center space-x-4 text-sm text-gray-600">
-                  <span className="font-medium text-secondary/90">{order.restaurant}</span>
+                  <span className="font-medium text-foreground/80">{order.restaurant}</span>
                   <span>•</span>
-                  <span className="text-secondary/90">{order.items} items</span>
+                  <span className="text-foreground/80">{order.items} items</span>
                   <span>•</span>
-                  <span className="font-semibold text-secondary">{order.total}</span>
+                  <span className="font-semibold text-foreground">{order.total}</span>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
-                    <MapPin className="h-4 w-4 text-secondary" />
-                    <span className="text-sm text-secondary">{order.address}</span>
+                    <MapPin className="h-4 w-4 text-primary" />
+                    <span className="text-sm text-primary">{order.address}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Phone className="h-4 w-4 text-secondary" />
-                    <span className="text-sm text-secondary">{order.phone}</span>
+                    <Phone className="h-4 w-4 text-primary" />
+                    <span className="text-sm text-primary">{order.phone}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Timer className="h-4 w-4 text-secondary" />
-                    <span className="text-sm text-secondary">ETA: {order.estimatedTime}</span>
+                    <Timer className="h-4 w-4 text-primary" />
+                    <span className="text-sm text-primary">ETA: {order.estimatedTime}</span>
                   </div>
                 </div>
 
@@ -133,24 +133,24 @@ export function OrdersSection() {
 
         <TabsContent value="completed" className="space-y-4 ">
           {completedOrders.map((order) => (
-            <Card key={order.id} className="border border-secondary/50 bg-white">
+            <Card key={order.id} className="border border-primary/50 bg-white">
               <CardContent className="p-4">
                 <div className="flex items-center justify-between mb-3">
                   <div>
-                    <h3 className="font-semibold text-secondary">{order.id}</h3>
-                    <p className="text-sm text-secondary/90">{order.restaurant}</p>
+                    <h3 className="font-semibold text-primary">{order.id}</h3>
+                    <p className="text-sm text-foreground/80">{order.restaurant}</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold text-secondary">+{order.earnings}</p>
-                    <p className="text-xs text-secondary/80">{order.completedAt}</p>
+                    <p className="font-semibold text-foreground">+{order.earnings}</p>
+                    <p className="text-xs text-foreground/80">{order.completedAt}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
-                    <Package className="h-4 w-4 text-secondary/80" />
-                    <span className="text-sm text-secondary/90">
-                      {order.items} items • <span className="text-secondary">{order.total}</span>
+                    <Package className="h-4 w-4 text-primary" />
+                    <span className="text-sm text-primary/90">
+                      {order.items} items • <span className="text-primary">{order.total}</span>
                     </span>
                   </div>
                   <div className="flex items-center space-x-1">

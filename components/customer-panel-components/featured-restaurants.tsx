@@ -70,7 +70,7 @@ const itemVariants = {
 export function FeaturedRestaurants() {
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-36">
         {/* Heading (no animation) */}
         <div className="text-center mb-12">
           <h2 className="font-heading font-bold text-3xl md:text-4xl text-foreground mb-4">
@@ -83,7 +83,7 @@ export function FeaturedRestaurants() {
 
         {/* Cards with fade + slide on scroll */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-4 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-2 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -97,7 +97,7 @@ export function FeaturedRestaurants() {
                     <img
                       src={restaurant.image || "/placeholder.svg"}
                       alt={restaurant.name}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-48 max-sm:h-100 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {restaurant.featured && (
                       <Badge className="absolute top-3 left-3 bg-primary text-primary-foreground">

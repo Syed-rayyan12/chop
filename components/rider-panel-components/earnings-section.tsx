@@ -53,8 +53,8 @@ export function EarningsSection() {
   return (
     <div className=" space-y-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold text-secondary">Earnings</h1>
-        <p className="text-secondary/70">Track your income and performance</p>
+        <h1 className="text-2xl font-bold text-primary">Earnings</h1>
+        <p className="text-foreground/80">Track your income and performance</p>
       </div>
 
       {/* Summary Cards */}
@@ -64,14 +64,14 @@ export function EarningsSection() {
           return (
             <Card
               key={idx}
-              className=" text-secondary border border-secondary/70 bg-white"
+              className=" text-secondary border border-primary/50 bg-white"
             >
               <CardContent className="p-4">
                 <div className="flex items-center space-x-2">
-                  <Icon className="h-6 w-6" />
+                  <Icon className="h-6 w-6 text-primary" />
                   <div>
                     <p className="text-sm text-foreground">{stat.title}</p>
-                    <p className="text-2xl font-bold">{stat.value}</p>
+                    <p className="text-2xl font-bold text-primary">{stat.value}</p>
                   </div>
                 </div>
               </CardContent>
@@ -83,28 +83,28 @@ export function EarningsSection() {
 
       {/* Detailed Breakdown */}
       <Tabs defaultValue="today" className="space-y-4 rounded-lg">
-        <TabsList className="grid w-full grid-cols-2  bg-secondary border-secondary rounded-xl ">
-          <TabsTrigger className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer" value="today">Today</TabsTrigger>
-          <TabsTrigger className="data-[state=active]:bg-background data-[state=active]:text-foreground text-background rounded-lg cursor-pointer" value="week">This Week</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2  bg-primary rounded-xl ">
+          <TabsTrigger className="data-[state=active]:bg-white data-[state=active]:text-foreground text-white rounded-lg cursor-pointer" value="today">Today</TabsTrigger>
+          <TabsTrigger className="data-[state=active]:bg-white data-[state=active]:text-foreground text-white rounded-lg cursor-pointer" value="week">This Week</TabsTrigger>
         </TabsList>
 
         <TabsContent value="today" className="space-y-4 ">
-          <Card className="border border-secondary/70 bg-white">
+          <Card className="border border-primary/50 bg-white">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
-                <Clock className="h-5 w-5 text-secondary" />
-                <span className="text-secondary">Hourly Breakdown</span>
+                <Clock className="h-5 w-5 text-primary" />
+                <span className="text-primary">Hourly Breakdown</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               {todayEarnings.map((hour, index) => (
-                <div key={index} className="flex items-center justify-between p-3  border border-secondary/70 bg-white rounded-lg">
+                <div key={index} className="flex items-center justify-between p-3  border border-primary/50 bg-white rounded-lg">
                   <div>
-                    <p className="font-medium text-secondary">{hour.time}</p>
-                    <p className="text-sm text-secondary/90">{hour.orders} orders completed</p>
+                    <p className="font-medium text-foreground">{hour.time}</p>
+                    <p className="text-sm text-priamry">{hour.orders} orders completed</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold text-secondary">{hour.earnings}</p>
+                    <p className="font-semibold text-foreground">{hour.earnings}</p>
                   </div>
                 </div>
               ))}
@@ -113,23 +113,23 @@ export function EarningsSection() {
         </TabsContent>
 
         <TabsContent value="week" className="space-y-4 ">
-          <Card className="bg-white border-secondary/70">
+          <Card className="bg-white border-primary/50">
             <CardHeader>
               <CardTitle className="flex items-center space-x-2">
-                <Calendar className="h-5 w-5 text-secondary" />
-                <span className="text-secondary">Daily Breakdown</span>
+                <Calendar className="h-5 w-5 text-primary" />
+                <span className="text-primary">Daily Breakdown</span>
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               {weeklyStats.map((day, index) => (
-                <div key={index} className="flex items-center justify-between p-3 border border-secondary/70 bg-white  rounded-lg">
+                <div key={index} className="flex items-center justify-between p-3 border border-primary/50 bg-white  rounded-lg">
                   <div>
-                    <p className="font-medium text-secondary">{day.day}</p>
-                    <p className="text-sm text-secondary/90">{day.orders} orders completed</p>
+                    <p className="font-medium text-foreground">{day.day}</p>
+                    <p className="text-sm text-primary">{day.orders} orders completed</p>
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold text-secondary">{day.earnings}</p>
-                    <p className="text-xs text-secondary/80">
+                    <p className="font-semibold text-foreground">{day.earnings}</p>
+                    <p className="text-xs text-foreground/80">
                       £{(Number.parseFloat(day.earnings.replace("£", "")) / day.orders).toFixed(2)}/order
                     </p>
                   </div>

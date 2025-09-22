@@ -61,11 +61,11 @@ export function RiderLogin() {
   }
 
   return (
-    <div className="min-h-screen bg-orange-100 flex items-center justify-center p-4 relative">
+    <div className="min-h-screen bg-white flex items-center justify-center p-4 relative">
       {/* ✅ Toaster */}
       <Toaster />
 
-      <Card className="w-full max-w-md  border-secondary">
+      <Card className="w-full max-w-md bg-white border-primary/40">
         <CardHeader className="text-center ">
         <Link href="/">
           <img
@@ -89,7 +89,7 @@ export function RiderLogin() {
                   placeholder="Enter Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 border border-secondary/50"
+                  className="pl-10 border text-foreground border-primary/40"
                   required
                 />
               </div>
@@ -105,7 +105,7 @@ export function RiderLogin() {
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 pr-10 border-secondary/50"
+                  className="pl-10 pr-10 text-foreground border-primary/40"
                   required
                 />
                 <button
@@ -118,12 +118,12 @@ export function RiderLogin() {
               </div>
             </div>
 
-            <Button type="submit" className="w-full bg-[#dd6636]">
+            <Button type="submit" className="w-full bg-primary cursor-pointer hover:bg-primary/90">
               {loading ? "Signing in..." : "Sign In"}
             </Button>
 
             <div className="text-center">
-              <a href="#" className="text-sm text-orange-600 hover:text-orange-700">
+              <a href="#" className="text-sm text-foreround">
                 Forgot Password?
               </a>
             </div>

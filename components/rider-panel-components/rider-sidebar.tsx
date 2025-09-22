@@ -34,8 +34,8 @@ export function RiderSidebar({ collapsed, setCollapsed }: { collapsed: boolean, 
             className={cn(
               "flex items-center px-2 py-2 text-sm font-medium rounded-lg transition-colors",
               isActive
-                ? "bg-white text-secondary border border-secondary/65"
-                : "text-secondary "
+                ? "bg-white text-primary border border-primary/65"
+                : "text-primary "
             )}
           >
             <item.icon className="h-5 w-5 flex-shrink-0" />
@@ -63,12 +63,12 @@ export function RiderSidebar({ collapsed, setCollapsed }: { collapsed: boolean, 
       {/* Desktop Sidebar */}
       <div
         className={cn(
-          "hidden lg:flex lg:flex-col min-h-screen top-0 left-0 z-50 h-full bg-background border-r border-secondary/70 transition-all duration-300",
+          "hidden lg:flex lg:flex-col min-h-screen top-0 left-0 z-50 h-full bg-background border-r border-primary/50 transition-all duration-300",
           collapsed ? "w-16" : "w-64"
         )}
       >
         <div className="flex h-full flex-col">
-          <div className="flex h-16 items-center justify-center px-4 border-b border-secondary/70">
+          <div className="flex h-16 items-center justify-center px-4 border-b border-primary/50">
             <div className="flex items-center space-x-2">
 
               {!collapsed && (

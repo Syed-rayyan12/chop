@@ -110,13 +110,13 @@ const FeatureSection = ({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
-          className="md:w-1/2 w-full flex justify-center pl-20 flex-col gap-18"
+          className="md:w-1/2 w-full flex justify-center pl-20 max-md:pl-0 flex-col gap-18"
         >
           {features.map((f, i) => (
             <motion.div
               key={i}
               variants={itemVariants}
-              className="flex items-start leading-5 gap-4"
+              className="flex items-start max-sm:flex-col leading-5 gap-4"
             >
               {/* Icon */}
               <div className="flex-none w-14 h-14 rounded-2xl bg-primary flex items-center justify-center text-white">
@@ -126,7 +126,7 @@ const FeatureSection = ({
               {/* Text */}
               <div className="flex-1 flex flex-col">
                 <h3 className="text-2xl font-bold leading-tight">{f.title}</h3>
-                <p className="mt-1 w-[70%] text-sm text-gray-600">{f.desc}</p>
+                <p className="mt-1 w-[70%] max-sm:w-full text-sm text-gray-600">{f.desc}</p>
               </div>
             </motion.div>
           ))}

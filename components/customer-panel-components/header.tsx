@@ -214,7 +214,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50  py-2 bg-white border-b border-primary/50  ">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-34">
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
           <Link href="/" >
@@ -228,10 +228,7 @@ export function Header() {
             <Button variant="ghost" size="sm" className=" font-medium cursor-pointer">
               Current Location
             </Button>
-          </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-6">
             <Link href="/restaurants" className="text-foreground hover:text-primary transition-colors ">
               Restaurants
             </Link>
@@ -239,6 +236,17 @@ export function Header() {
               Offers
             </Link>
           </nav>
+          </div>
+
+          {/* Desktop Navigation */}
+          {/* <nav className="hidden md:flex items-center space-x-6">
+            <Link href="/restaurants" className="text-foreground hover:text-primary transition-colors ">
+              Restaurants
+            </Link>
+            <Link href="/offers" className="text-foreground hover:text-primary transition-colors">
+              Offers
+            </Link>
+          </nav> */}
 
           {/* Actions */}
           <div className="flex items-center space-x-2">
