@@ -125,7 +125,7 @@ export function HeroSection() {
           >
             <Button
               size="lg"
-              className="font-medium bg-primary text-white cursor-pointer"
+              className="font-medium bg-primary hover:bg-primary text-white cursor-pointer"
               onClick={() => router.push("/restaurants")}
             >
               Order Now
