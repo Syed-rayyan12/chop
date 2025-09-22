@@ -1,13 +1,18 @@
 "use client";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { motion, useTransform, useScroll } from "framer-motion";
+import { useRef } from "react";
 
 export default function ScrollMarquee() {
-  const controls1 = useAnimation();
-  const controls2 = useAnimation();
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"], 
+    // animation runs smoothly while section is visible
+  });
 
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+  // 🚀 Smoother + slower scroll movement
+  const x1 = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);   // right → left
+  const x2 = useTransform(scrollYProgress, [0, 1], ["-10%", "0%"]);  // left → right
 
   const content1 = (
     <>
@@ -37,45 +42,21 @@ export default function ScrollMarquee() {
     </>
   );
 
-  useEffect(() => {
-    if (inView) {
-      // Row 1: right → left, starting inside padding
-      controls1.start({
-        x: ["0%", "-100%"],
-        transition: { duration: 65, ease: "linear", repeat: Infinity },
-      });
-
-      // Row 2: left → right, starting inside padding
-      controls2.start({
-        x: ["-100%", "0%"],
-        transition: { duration: 65, ease: "linear", repeat: Infinity },
-      });
-    }
-  }, [inView, controls1, controls2]);
-
   return (
     <div ref={ref} className="overflow-hidden w-full bg-white py-20 space-y-14">
       {/* Row 1: right → left */}
       <div className="relative mx-auto max-w-7xl overflow-hidden px-14">
-        <motion.div
-          initial={{ x: "0%" }}
-          animate={controls1}
-          className="inline-flex whitespace-nowrap"
-        >
+        <motion.div style={{ x: x1 }} className="inline-flex whitespace-nowrap">
           {content1}
-          {content1} {/* duplicate for seamless marquee */}
+          {content1}
         </motion.div>
       </div>
 
       {/* Row 2: left → right */}
       <div className="relative mx-auto max-w-7xl overflow-hidden px-14">
-        <motion.div
-          initial={{ x: "-100%" }}
-          animate={controls2}
-          className="inline-flex whitespace-nowrap"
-        >
+        <motion.div style={{ x: x2 }} className="inline-flex whitespace-nowrap">
           {content2}
-          {content2} {/* duplicate for seamless marquee */}
+          {content2}
         </motion.div>
       </div>
     </div>
