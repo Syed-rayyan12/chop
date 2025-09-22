@@ -67,7 +67,7 @@ export default function RiderSignup() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-orange-100 relative">
+    <div className="flex justify-center items-center min-h-screen bg-white relative">
       {/* ✅ Render Toaster */}
       <Toaster />
 

@@ -11,6 +11,7 @@ import Link from "next/link"
 export default function Page() {
   const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
+  const [showSignupOptions, setShowSignupOptions] = useState(false)
 
   const [formData, setFormData] = useState({
     email: "",
@@ -121,6 +122,18 @@ export default function Page() {
             {error && <p className="text-red-500 mt-3 text-center">{error}</p>}
           </form>
 
+          {/* Sign up link */}
+          <p className="text-center text-sm text-gray-600 mt-4">
+            Don’t have an account?{" "}
+            <button
+              type="button"
+              onClick={() => router.push("/user-signup")}
+              className="text-indigo-600 font-medium cursor-pointer hover:underline"
+            >
+              Sign up
+            </button>
+          </p>
+
           {/* Divider */}
           <div className="flex items-center my-6">
             <div className="flex-grow border-t border-gray-300"></div>
@@ -128,22 +141,47 @@ export default function Page() {
             <div className="flex-grow border-t border-gray-300"></div>
           </div>
 
-          {/* Secondary Options */}
+          {/* One Create Account Button */}
           <div className="space-y-3">
             <Button
-              onClick={() => router.push("/rider-signup")}
-              className="w-full bg-indigo-500 hover:bg-indigo-600 text-white"
+              onClick={() => setShowSignupOptions(true)}
+              className="w-full bg-secondary cursor-pointer hover:bg-secondary/90 text-white"
             >
-              Sign Up as Rider
-            </Button>
-
-            <Button
-              onClick={() => router.push("/restaurant-signup")}
-              className="w-full bg-green-500 hover:bg-green-600 text-white"
-            >
-              Sign Up as Restaurant
+           Get Started (Rider or Restaurant)
             </Button>
           </div>
+
+          {/* Signup Options Modal */}
+          {showSignupOptions && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+              <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md space-y-4">
+                <h2 className="text-lg font-semibold text-center text-gray-800">
+                  Select Your Account Type
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Card
+                    className="p-4 cursor-pointer bg-white border hover:border-secondary/50  transition"
+                    onClick={() => router.push("/rider-signup")}
+                  >
+                    <h3 className="text-center font-medium">Rider</h3>
+                  </Card>
+                  <Card
+                    className="p-4 cursor-pointer bg-white border hover:border-primary/50  transition"
+                    onClick={() => router.push("/restaurant-signup")}
+                  >
+                    <h3 className="text-center font-medium">Restaurant</h3>
+                  </Card>
+                </div>
+                <Button
+                 
+                  onClick={() => setShowSignupOptions(false)}
+                  className="w-full bg-secondary hover:bg-secondary/90 cursor-pointer"
+                >
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     </div>
